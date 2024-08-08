@@ -1,0 +1,55 @@
+{
+    "name": "postgres",
+    "djClassName": "org.dashjoin.service.SQLDatabase",
+    "username": "postgres",
+    "password": "DJ1#\bdTVug3X/kFwkY12ARqJPEqfcCPYw9r9t",
+    "url": "jdbc:postgresql://localhost:5432/postgres",
+    "ID": "dj/postgres",
+    "tables": {
+        "Topic": {
+            "instanceLayout": {
+                "widget": "page",
+                "children": [
+                    {
+                        "text": "Stelle Frage",
+                        "print": "(\n$x := $curl(\"POST\", \"https://api.openai.com/v1/chat/completions\", {\n    \"model\": \"gpt-4o-mini\",\n    \"messages\": [\n      {\n        \"role\": \"system\",\n        \"content\": \"Du bist ein Medizin Professor. Stelle mir eine Frage zu dem Text den ich Dir gebe.\"\n      },\n      {\n        \"role\": \"user\",\n        \"content\": value.Content\n      }\n    ]\n }, {\"Authorization\": \"openai\"}).choices[0].message.content;\n\n$setVariable(\"frage\", $x);\n$refresh();\n)\n",
+                        "widget": "button"
+                    },
+                    {
+                        "title": "Frage",
+                        "display": "variable.frage",
+                        "widget": "display"
+                    },
+                    {
+                        "title": "Antwort",
+                        "print": "(\n\n$x := $curl(\"POST\", \"https://api.openai.com/v1/chat/completions\", {\n    \"model\": \"gpt-4o-mini\",\n    \"messages\": [\n      {\n        \"role\": \"system\",\n        \"content\": \"Du bist ein Medizin Professor. Benote die Antwort mit einer Schulnote und Gib feedback von 20 wörtern. Antworte mit einem JSON objekt\"\n      },\n      {\n        \"role\": \"user\",\n        \"content\": value.Content\n      },\n      {\n        \"role\": \"assistant\",\n        \"content\": variable.frage\n      },\n      {\n        \"role\": \"user\",\n        \"content\": form.antwort\n      }\n    ]\n }, {\"Authorization\": \"openai\"} ).choices[0].message.content;\n\n$feedback := $parseJson($contains($x, /```json/) ? $substring($x, 7, $length($x)-7-3) : $x);\n\n$setVariable(\"feedback\", $feedback);\n$create(\"postgres\", \"Result\", {\"Topic\": value.ID, \"Grade\": $feedback.note, \"User\": user, \"Time\": $now()});\n$refresh();\n\n)\n",
+                        "text": "Antwort schicken",
+                        "widget": "button",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "antwort": {
+                                    "widget": "textarea",
+                                    "style": {
+                                        "width": "400px"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "title": "Feedback",
+                        "display": "variable.feedback",
+                        "widget": "display"
+                    },
+                    {
+                        "html": "<pre>${context}</pre>",
+                        "context": "value.Content",
+                        "widget": "html"
+                    }
+                ]
+            },
+            "dj-label": "${Title}"
+        }
+    }
+}

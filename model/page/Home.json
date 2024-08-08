@@ -1,0 +1,14 @@
+{
+    "ID": "Home",
+    "layout": {
+        "widget": "page",
+        "children": [
+            {
+                "database": "postgres",
+                "query": "topic",
+                "title": "Themen",
+                "widget": "tree"
+            }
+        ]
+    }
+}

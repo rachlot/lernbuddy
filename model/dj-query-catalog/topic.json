@@ -1,0 +1,12 @@
+{
+    "ID": "topic",
+    "type": "read",
+    "database": "dj/db",
+    "arguments": {
+        "node": {
+            "type": "string",
+            "sample": "Müttersterblichkeit Müttersterblichkeit"
+        }
+    },
+    "query-pointer": "0.sql"
+}
