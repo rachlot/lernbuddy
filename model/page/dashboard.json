@@ -1,0 +1,75 @@
+{
+    "ID": "LernBuddy",
+    "layout": {
+        "widget": "page",
+        "children": [
+            {
+                "widget": "container",
+                "children": [
+                    {
+                        "html": "<h1>Willkommen beim LernBuddy!</h1>\n<p>Wählen ein Thema aus, das Du lernen möchtest, und starten Sie das Quiz!</p>",
+                        "widget": "html"
+                    },
+                    {
+                        "title": "Thema auswählen",
+                        "text": "Starten",
+                        "expression": "{\n  \"thema\": variable.thema,\n  \"antworten\": []\n}",
+                        "print": "(\n\n$x := $curl(\"POST\", \"https://api.openai.com/v1/chat/completions\", {\n    \"model\": \"gpt-4o-mini\",\n    \"response_format\": { \"type\": \"json_object\" },\n    \"messages\": [\n      {\n        \"role\": \"system\",\n        \"content\": \"Deine Aufgabe ist es, Quizfragen zu dem folgenden Thema zu erstellen. Jede Frage sollte eine richtige Antwort und drei falsche Antworten beinhalten. Thema: \" & form.thema\n      }\n    ]\n }, {\"Authorization\": \"openai\"}).choices[0].message.content;\n\n$setVariable(\"quizfragen\", $parseJson($x));\n$refresh()\n\n)",
+                        "widget": "button",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "thema": {
+                                    "widget": "select",
+                                    "options": ["Anatomie", "Physiologie", "Pharmakologie", "Pathologie"],
+                                    "style": {
+                                        "width": "400px"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "display": "variable.quizfragen",
+                        "title": "Quiz Fragen",
+                        "widget": "display",
+                        "size": 6
+                    },
+                    {
+                        "title": "Frage beantworten",
+                        "text": "Antwort einreichen",
+                        "expression": "{\n  \"antwort\": variable.antwort\n}",
+                        "print": "(\n$evaluateAnswer(variable.antwort, variable.quizfragen[currentIndex].correctAnswer);\n$appendVariable(\"antworten\", variable.antwort);\n$nextQuestion();\n$refresh()\n\n)",
+                        "widget": "button",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "antwort": {
+                                    "widget": "radiogroup",
+                                    "options": [], 
+                                    "style": {
+                                        "width": "600px"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "display": "variable.ergebnisse",
+                "title": "Ihre Ergebnisse",
+                "widget": "display",
+                "size": 6
+            },
+            {
+                "text": "Quiz beenden",
+                "expression": "variable.ergebnisse",
+                "print": "form",
+                "title": "Ergebnis anzeigen",
+                "widget": "button",
+                "size": 6
+            }
+        ]
+    }
+}
