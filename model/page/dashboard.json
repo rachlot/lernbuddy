@@ -21,7 +21,7 @@
                             "properties": {
                                 "thema": {
                                     "widget": "select",
-                                    "options": ["Anatomie", "Physiologie", "Pharmakologie", "Pathologie"],
+                                    "options": "['Anatomie', 'Physiologie', 'Pharmakologie', 'Pathologie']",
                                     "style": {
                                         "width": "400px"
                                     }
