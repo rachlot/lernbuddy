@@ -2,8 +2,8 @@
     "name": "postgres",
     "djClassName": "org.dashjoin.service.SQLDatabase",
     "username": "postgres",
-    "password": "DJ1#\bdTVug3X/kFwkY12ARqJPEqfcCPYw9r9t",
-    "url": "jdbc:postgresql://localhost:5432/postgres",
+    "password": "DJ1#\bLN1ubFw94pZSZQ4cSG6KxbWukt/wsaZd",
+    "url": "jdbc:postgresql://postgres:5432/postgres",
     "ID": "dj/postgres",
     "tables": {
         "Topic": {
