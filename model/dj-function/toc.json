@@ -1,0 +1,30 @@
+{
+    "ID": "toc",
+    "djClassName": "com.dashjoin.function.ETL",
+    "expressions": {
+        "foreach": "",
+        "expression": "(\n  $content := $openJson(\"file:upload/2019 Die Anästhesiologie_Rossaint_4.Auflage.json\");\n  $map($openCsv(\"file:upload/toc.csv\", {\"withDelimiter\": \";\"}), function($v, $i){ $v ~> | $ | {\"Content\": $content[$i+1]} | })\n)"
+    },
+    "mappings": {
+        "Topic": {
+            "sourceTable": "table",
+            "extractColumn": null,
+            "extractKey": null,
+            "pk": null,
+            "rowMapping": {
+                "Parent": "Parent",
+                "Title": "Title",
+                "ID": "Title",
+                "Content": "Content"
+            },
+            "rowFilter": null
+        }
+    },
+    "createSchema": false,
+    "ignoreErrors": false,
+    "oldData": "Ignore",
+    "database": "postgres",
+    "start": "2024-09-05T18:16:38.522+00:00",
+    "status": "success",
+    "end": "2024-09-05T18:16:39.874+00:00"
+}
