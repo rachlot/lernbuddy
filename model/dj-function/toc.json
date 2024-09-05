@@ -3,7 +3,7 @@
     "djClassName": "com.dashjoin.function.ETL",
     "expressions": {
         "foreach": "",
-        "expression": "(\n  $content := $openJson(\"file:upload/2019 Die Anästhesiologie_Rossaint_4.Auflage.json\");\n  $map($openCsv(\"file:upload/toc.csv\", {\"withDelimiter\": \";\"}), function($v, $i){ $v ~> | $ | {\"Content\": $content[$i+1]} | })\n)"
+        "expression": "(\n  $content := $openJson(\"file:upload/buch.json\");\n  $map($openCsv(\"file:upload/toc.csv\", {\"withDelimiter\": \";\"}), function($v, $i){ $v ~> | $ | {\"Content\": $content[$i+1]} | })\n)"
     },
     "mappings": {
         "Topic": {
