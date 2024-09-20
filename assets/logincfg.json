@@ -1,0 +1,11 @@
+{
+    "signInTabText": "My Dashjoin",
+    "emailLoginEnabled": true,
+    "passwordResetEnabled": true,
+    "registrationEnabled": true,
+    "guestLoginEnabled": false,
+    "providers": "google",
+    "backgroundImage": "https://studieren.de/profilestorage/_processed_/5/9/csm_bild_1__uni_wuerzburg_-min_56018b5aaf.jpg",
+    "className": "dashjoin",
+    "openIdConfigs": []
+}
