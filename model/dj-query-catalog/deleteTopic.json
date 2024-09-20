@@ -1,0 +1,7 @@
+{
+    "ID": "deleteTopic",
+    "type": "write",
+    "database": "dj/postgres",
+    "arguments": null,
+    "query-pointer": "0.sql"
+}
