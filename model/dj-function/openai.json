@@ -3,5 +3,8 @@
     "djClassName": "org.dashjoin.function.Credentials",
     "username": "Authorization",
     "password": "DJ1#\b3xuf7M+5mj+XEWPexkIbzlrrX14ttvF1Ay7MV1uIy9VTSfA2y/amsdN0TnMDO2VevayPT8Row8ZnTilIIYNg8Unw9f/sipn1",
-    "apiKey": true
+    "apiKey": true,
+    "roles": [
+        "authenticated"
+    ]
 }

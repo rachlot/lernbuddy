@@ -51,5 +51,8 @@
             },
             "dj-label": "${Title}"
         }
-    }
+    },
+    "readRoles": [
+        "authenticated"
+    ]
 }

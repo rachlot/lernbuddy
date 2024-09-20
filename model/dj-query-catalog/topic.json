@@ -8,5 +8,8 @@
             "sample": "Müttersterblichkeit Müttersterblichkeit"
         }
     },
-    "query-pointer": "0.sql"
+    "query-pointer": "0.sql",
+    "roles": [
+        "authenticated"
+    ]
 }
