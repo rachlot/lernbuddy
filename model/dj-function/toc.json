@@ -3,7 +3,7 @@
     "djClassName": "com.dashjoin.function.ETL",
     "expressions": {
         "foreach": "",
-        "expression": "(\n  $content := $openJson(\"file:upload/buch.json\");\n  $map($openCsv(\"file:upload/toc.csv\", {\"withDelimiter\": \";\"}), function($v, $i){ $v ~> | $ | {\"Content\": $content[$i+1]} | })\n)"
+       "expression": "(\n  $content := $openJson(\"file:upload/buch.json\");\n  $map($openCsv(\"file:upload/toc.csv\", {\"withDelimiter\": \";\"}), function($v, $i){\n    $v ~> | $ | {\n      \"Content\": $content[$i+1],\n      \"Lernziel\": $v.Lernziel\n    }\n  })\n)"
     },
     "mappings": {
         "Topic": {
@@ -15,7 +15,8 @@
                 "Parent": "Parent",
                 "Title": "Title",
                 "ID": "Title",
-                "Content": "Content"
+                "Content": "Content",
+                "Lernziel": "Lernziel"
             },
             "rowFilter": null
         }

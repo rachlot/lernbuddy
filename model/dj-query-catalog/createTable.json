@@ -3,5 +3,5 @@
     "type": "write",
     "database": "dj/postgres",
     "query-pointer": "0.sql",
-    "query": "create table \"Topic\" (\n  \"ID\" text primary key,\n  \"Title\" text,\n  \"Content\" text,\n  \"Parent\" text references \"Topic\"\n);\n\ncreate table \"Result\" (\n  \"ID\" serial primary key,\n  \"Topic\" text references \"Topic\",\n  \"User\" text,\n  \"Time\" timestamp,\n  \"Grade\" int\n)\n"
+    "query": "create table \"Topic\" (\n  \"ID\" text primary key,\n  \"Title\" text,\n  \"Content\" text,\n  \"Parent\" text references \"Topic\"\n);\n\ncreate table \"Result\" (\n  \"ID\" serial primary key,\n  \"Topic\" text references \"Topic\",\n  \"User\" text,\n  \"Time\" timestamp,\n  \"Prozent\" int\n)\n"
 }

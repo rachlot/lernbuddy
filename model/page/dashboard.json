@@ -7,14 +7,15 @@
                 "widget": "container",
                 "children": [
                     {
-                        "html": "<h1>Willkommen beim LernBuddy!</h1>\n<p>Wählen ein Thema aus, das Du lernen möchtest, und starten Sie das Quiz!</p>",
+                        "html": "<h1>Willkommen beim LernBuddy!</h1>\n<p>Wählen ein Thema aus, das Du lernen möchtest, und starte das Quiz!</p>",
                         "widget": "html"
                     },
                     {
                         "title": "Thema auswählen",
                         "text": "Starten",
                         "expression": "{\n  \"thema\": variable.thema,\n  \"antworten\": []\n}",
-                        "print": "(\n\n$x := $curl(\"POST\", \"https://api.openai.com/v1/chat/completions\", {\n    \"model\": \"gpt-4o-mini\",\n    \"response_format\": { \"type\": \"json_object\" },\n    \"messages\": [\n      {\n        \"role\": \"system\",\n        \"content\": \"Deine Aufgabe ist es, Quizfragen zu dem folgenden Thema zu erstellen. Jede Frage sollte eine richtige Antwort und drei falsche Antworten beinhalten. Thema: \" & form.thema\n      }\n    ]\n }, {\"Authorization\": \"openai\"}).choices[0].message.content;\n\n$setVariable(\"quizfragen\", $parseJson($x));\n$refresh()\n\n)",
+                       "print": "($x := $curl(\"POST\", \"https://api.openai.com/v1/chat/completions\", {\"model\": \"gpt-4o-mini\", \"messages\": [{\"role\": \"system\", \"content\": \"Deine Aufgabe ist es, Textaufgaben zu den folgenden Lernzielen zu erstellen. Jede Aufgabe soll das Verständnis der Studierenden testen und detailliertes Feedback geben, um aufzuzeigen, ob das Lernziel erreicht wurde. Feedback sollte umfassen: eine Erklärung zur richtigen Antwort, Hinweise auf häufige Fehler und Tipps, wie das Lernziel besser verstanden werden kann. Lernziele: \" & form.lernziele}]}, {\"Authorization\": \"openai\"}).choices[0].message.content; $setVariable(\"aufgabenMitFeedback\", $parseJson($x)); $refresh();)",
+
                         "widget": "button",
                         "schema": {
                             "type": "object",
