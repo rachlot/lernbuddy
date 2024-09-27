@@ -91,6 +91,45 @@
                     "displayWith": "fk"
                 }
             }
+        },
+        "Inhalt": {
+            "instanceLayout": {
+                "widget": "page",
+                "children": [
+                    {
+                        "title": "Edit Record",
+                        "widget": "edit"
+                    },
+                    {
+                        "title": "Related Records",
+                        "widget": "links"
+                    },
+                    {
+                        "title": "",
+                        "print": "(\n$x := $curl(\"POST\", \"https://api.openai.com/v1/chat/completions\", {\n    \"model\": \"gpt-4o-mini\",\n    \"messages\": [\n      {\n        \"role\": \"system\",\n        \"content\": \"Du bist ein Medizin Professor. Stelle mir eine Frage zu dem Text den ich Dir gebe.\"\n      },\n      {\n        \"role\": \"user\",\n        \"content\": value.Inhalt\n      }\n    ]\n }, {\"Authorization\": \"openai\"}).choices[0].message.content;\n$setVariable(\"frage\", $x);\n$refresh();\n)\n",
+                        "text": "Stelle Frage",
+                        "widget": "button"
+                    },
+                    {
+                        "display": "variable.frage",
+                        "widget": "display"
+                    },
+                    {
+                        "print": "(\n$x := $curl(\"POST\", \"https://api.openai.com/v1/chat/completions\", {\n    \"model\": \"gpt-4o-mini\",\n    \"response_format\": { \"type\": \"json_object\" },\n    \"messages\": [\n      {\n        \"role\": \"system\",\n        \"content\": \"Du bist ein Medizin Professor. Stelle mir eine Frage zu dem Text den ich Dir gebe. Anschließend bewertest Du die Antwort mit einem JSON objekt das die folgenden Felder enthält:\nfeedback: ein feedback mit 20 wörtern\nprozent: ein prozentwert der die güte der antwort beschreibt\n\"\n      },\n      {\n        \"role\": \"user\",\n        \"content\": value.Inhalt\n      },\n      {\n        \"role\": \"assistant\",\n        \"content\": variable.frage\n      },\n      {\n        \"role\": \"user\",\n        \"content\": form.antwort\n      }\n    ]\n }, {\"Authorization\": \"openai\"}).choices[0].message.content;\n)\n",
+                        "text": "Sende Antwort",
+                        "expression": "",
+                        "widget": "button",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "antwort": {
+                                    "widget": "voice"
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
         }
     },
     "readRoles": [
