@@ -16,7 +16,8 @@
                 "Title": "Title",
                 "ID": "Title",
                 "Content": "Content",
-                "Lernziel": "Lernziel"
+                "Lernziel": "Lernziel",
+                "Keyword": "Keyword"
             },
             "rowFilter": null
         }
