@@ -1,3 +1,7 @@
 {
-    "ID": "peter.kranke@gmail.com"
+    "ID": "peter.kranke@gmail.com",
+    "active": true,
+    "roles": [
+        "authenticated"
+    ]
 }
