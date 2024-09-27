@@ -1,0 +1,25 @@
+{
+    "djClassName": "com.dashjoin.function.ETL",
+    "ID": "inhalt",
+    "expressions": {
+        "foreach": "",
+        "expression": "(\n  $content := $openJson(\"file:upload/buch.json\");\n  $map($openCsv(\"file:upload/toc.csv\", {\"withDelimiter\": \";\"}), function($v, $i){\n    {\n      \"ID\": $v.Title,\n      \"Inhalt\": $content[$i+1]\n    }\n  })\n)"
+    },
+    "database": "postgres",
+    "oldData": "Delete All",
+    "createSchema": true,
+    "ignoreErrors": false,
+    "mappings": {
+        "Inhalt": {
+            "sourceTable": "table",
+            "extractColumn": null,
+            "extractKey": null,
+            "pk": null,
+            "rowMapping": null,
+            "rowFilter": null
+        }
+    },
+    "start": "2024-09-27T15:55:02.184+00:00",
+    "status": "success",
+    "end": "2024-09-27T15:55:06.316+00:00"
+}
