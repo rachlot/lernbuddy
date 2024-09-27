@@ -50,6 +50,35 @@
                 ]
             },
             "dj-label": "${Title}"
+        },
+        "Lernziel": {
+            "dj-label": "${Ziel}"
+        },
+        "Fachbereich": {
+            "instanceLayout": {
+                "widget": "page",
+                "children": [
+                    {
+                        "widget": "container",
+                        "children": [
+                            {
+                                "database": "postgres",
+                                "query": "lernziel",
+                                "arguments": "{\"Fachbereich\": value.ID}",
+                                "widget": "table"
+                            },
+                            {
+                                "title": "Edit Record",
+                                "widget": "edit"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Related Records",
+                        "widget": "links"
+                    }
+                ]
+            }
         }
     },
     "readRoles": [

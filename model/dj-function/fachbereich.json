@@ -1,0 +1,28 @@
+{
+    "ID": "fachbereich",
+    "djClassName": "com.dashjoin.function.ETL",
+    "expressions": {
+        "foreach": "",
+        "expression": "$distinct($all(\"postgres\", \"Lernziel\").Fachbereich)"
+    },
+    "mappings": {
+        "Fachbereich": {
+            "sourceTable": "table",
+            "extractColumn": null,
+            "extractKey": null,
+            "pk": null,
+            "rowMapping": {
+                "ID": "column"
+            },
+            "rowFilter": null
+        }
+    },
+    "createSchema": true,
+    "ignoreErrors": false,
+    "workerThreads": null,
+    "oldData": "Delete All",
+    "database": "postgres",
+    "start": "2024-09-27T15:41:53.440+00:00",
+    "status": "success",
+    "end": "2024-09-27T15:41:56.233+00:00"
+}
