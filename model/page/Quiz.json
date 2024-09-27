@@ -1,0 +1,21 @@
+{
+    "ID": "Quiz",
+    "layout": {
+        "widget": "page",
+        "children": [
+            {
+                "print": "(\n  $arr := $all(\"postgres\", \"Topic\", null, null, null, null, {\"Keyword\": form.field});\n  $index := $floor($random()*$count($arr));\n  $id := $arr[$index].ID;\n  $record := {\n    \"database\": \"postgres\", \n    \"table\": \"Topic\", \n    \"pk1\": $id\n  };\n  $navigate($record)\n)",
+                "widget": "button",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "field": {
+                            "options": "$adHocQuery(\"postgres\", 'select distinct \"Keyword\" from \"Topic\" where \"Keyword\" is not null').\"Topic.Keyword\"",
+                            "widget": "select"
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}
