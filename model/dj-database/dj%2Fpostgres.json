@@ -79,6 +79,18 @@
                     }
                 ]
             }
+        },
+        "Lernziel2Inhalt": {
+            "properties": {
+                "Inhalt": {
+                    "ref": "dj/postgres/Inhalt/ID",
+                    "displayWith": "fk"
+                },
+                "Lernziel": {
+                    "ref": "dj/postgres/Lernziel/ID",
+                    "displayWith": "fk"
+                }
+            }
         }
     },
     "readRoles": [
