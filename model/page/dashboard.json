@@ -22,7 +22,7 @@
                             "properties": {
                                 "thema": {
                                     "widget": "select",
-                                    "options": "['Anatomie', 'Physiologie', 'Pharmakologie', 'Pathologie']",
+                                    "options": "['Anästhesieverfahren','Atemwegsmanagement','Geburtshilfliche Anästhesie','Human Factors','Kinderanästhesie','Pharmakologie','Polytrauma Präklinik','Präoperatives Management und Risikofaktoren','Regionalanäthesie','Schmerztherapie','Sepsis und ARDS']",
                                     "style": {
                                         "width": "400px"
                                     }
