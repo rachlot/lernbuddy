@@ -1,0 +1,13 @@
+{
+    "id": "fachbereich",
+    "ID": "fachbereich",
+    "type": "read",
+    "database": "dj/postgres",
+    "query-pointer": "0.sql",
+    "arguments": {
+        "Fachbereich": {
+            "type": "string",
+            "sample": "Anästhesieverfahren"
+        }
+    }
+}

@@ -5,8 +5,8 @@
         "children": [
             {
                 "database": "postgres",
-                "query": "topic",
-                "title": "Themen",
+                "query": "fachbereich",  
+                "title": "Fachbereiche",
                 "widget": "tree"
             }
         ]
