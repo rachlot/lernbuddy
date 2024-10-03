@@ -18,19 +18,39 @@
                 "widget": "page",
                 "children": [
                     {
-                        "widget": "container",
-                        "children": [
-                            {
-                                "html": "<br>",
-                                "widget": "html"
-                            },
-                            {
-                                "text": "Stelle Frage",
-                                "print": "(\n  $arr := $all(\"postgres\", \"Lernziel2Inhalt\", null, null, null, null, {\"Lernziel\": value.ID});\n  $index := $floor($random()*$count($arr));\n  $id := $arr[$index].Inhalt;\n  $read(\"postgres\", \"Inhalt\", $id).Inhalt\n)",
-                                "title": "",
-                                "widget": "button"
+                        "display": "(\n  $arr := $all(\"postgres\", \"Lernziel2Inhalt\", null, null, null, null, {\"Lernziel\": value.ID});\n  $index := $floor($random()*$count($arr));\n  $id := $arr[$index].Inhalt;\n  $setVariable(\"Inhalt\", $read(\"postgres\", \"Inhalt\", $id).Inhalt);\n  value.Ziel\n)",
+                        "title": "Lernziel",
+                        "widget": "display"
+                    },
+                    {
+                        "title": "",
+                        "print": "(\n$x := $curl(\"POST\", \"https://api.openai.com/v1/chat/completions\", {\n    \"model\": \"gpt-4o-mini\",\n    \"messages\": [\n      {\n        \"role\": \"system\",\n        \"content\": \"Du bist ein Medizin Professor. Stelle mir eine Frage zu dem Text den ich Dir gebe.\"\n      },\n      {\n        \"role\": \"user\",\n        \"content\": variable.Inhalt\n      }\n    ]\n }, {\"Authorization\": \"openai\"}).choices[0].message.content;\n$setVariable(\"frage\", $x);\n$refresh();\n)\n",
+                        "text": "Stelle Frage",
+                        "widget": "button"
+                    },
+                    {
+                        "display": "variable.frage",
+                        "widget": "display"
+                    },
+                    {
+                        "print": "(\n$x := $curl(\"POST\", \"https://api.openai.com/v1/chat/completions\", {\n    \"model\": \"gpt-4o-mini\",\n    \"response_format\": { \"type\": \"json_object\" },\n    \"messages\": [\n      {\n        \"role\": \"system\",\n        \"content\": \"Du bist ein strenger Medizin Professor. Stelle mir eine Fachfrage zu dem Text den ich Dir gebe. Anschließend bewertest Du die Antwort mit einem JSON Objekt, das die folgenden Felder enthält:\nfeedback: ein feedback mit 60 wörtern, mit Erklärung zur richtigen Antwort, Hinweise auf häufige Fehler und Tipps, wie das Lernziel besser verstanden werden kann\nprozent: ein prozentwert der die güte der antwort beschreibt\n\"\n      },\n      {\n        \"role\": \"user\",\n        \"content\": variable.Inhalt\n      },\n      {\n        \"role\": \"assistant\",\n        \"content\": variable.frage\n      },\n      {\n        \"role\": \"user\",\n        \"content\": form.antwort\n      }\n    ]\n }, {\"Authorization\": \"openai\"}).choices[0].message.content;\n $setVariable(\"result\", $x);\n $refresh();\n)\n",
+                        "text": "Sende Antwort",
+                        "expression": "",
+                        "widget": "button",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "antwort": {
+                                    "widget": "voice",
+                                    "language": "de",
+                                    "multiline": true
+                                }
                             }
-                        ]
+                        }
+                    },
+                    {
+                        "display": "$parseJson(variable.result)",
+                        "widget": "display"
                     }
                 ]
             }
@@ -75,45 +95,6 @@
                     "ref": "dj/postgres/Lernziel/ID",
                     "displayWith": "fk"
                 }
-            }
-        },
-        "Inhalt": {
-            "instanceLayout": {
-                "widget": "page",
-                "children": [
-                    {
-                        "title": "Edit Record",
-                        "widget": "edit"
-                    },
-                    {
-                        "title": "Related Records",
-                        "widget": "links"
-                    },
-                    {
-                        "title": "",
-                        "print": "(\n$x := $curl(\"POST\", \"https://api.openai.com/v1/chat/completions\", {\n    \"model\": \"gpt-4o-mini\",\n    \"messages\": [\n      {\n        \"role\": \"system\",\n        \"content\": \"Du bist ein Medizin Professor. Stelle mir eine Frage zu dem Text den ich Dir gebe.\"\n      },\n      {\n        \"role\": \"user\",\n        \"content\": value.Inhalt\n      }\n    ]\n }, {\"Authorization\": \"openai\"}).choices[0].message.content;\n$setVariable(\"frage\", $x);\n$refresh();\n)\n",
-                        "text": "Stelle Frage",
-                        "widget": "button"
-                    },
-                    {
-                        "display": "variable.frage",
-                        "widget": "display"
-                    },
-                    {
-                        "print": "(\n$x := $curl(\"POST\", \"https://api.openai.com/v1/chat/completions\", {\n    \"model\": \"gpt-4o-mini\",\n    \"response_format\": { \"type\": \"json_object\" },\n    \"messages\": [\n      {\n        \"role\": \"system\",\n        \"content\": \"Du bist ein strenger Medizin Professor. Stelle mir eine Fachfrage zu dem Text den ich Dir gebe. Anschließend bewertest Du die Antwort mit einem JSON Objekt, das die folgenden Felder enthält:\nfeedback: ein feedback mit 60 wörtern, mit Erklärung zur richtigen Antwort, Hinweise auf häufige Fehler und Tipps, wie das Lernziel besser verstanden werden kann\nprozent: ein prozentwert der die güte der antwort beschreibt\n\"\n      },\n      {\n        \"role\": \"user\",\n        \"content\": value.Inhalt\n      },\n      {\n        \"role\": \"assistant\",\n        \"content\": variable.frage\n      },\n      {\n        \"role\": \"user\",\n        \"content\": form.antwort\n      }\n    ]\n }, {\"Authorization\": \"openai\"}).choices[0].message.content;\n)\n",
-                        "text": "Sende Antwort",
-                        "expression": "",
-                        "widget": "button",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "antwort": {
-                                    "widget": "voice"
-                                }
-                            }
-                        }
-                    }
-                ]
             }
         }
     },
