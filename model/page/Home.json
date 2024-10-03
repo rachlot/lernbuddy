@@ -4,10 +4,31 @@
         "widget": "page",
         "children": [
             {
-                "database": "postgres",
-                "query": "fachbereich",  
-                "title": "Fachbereiche",
-                "widget": "tree"
+                "html": "<h1>Willkommen beim LernBuddy!</h1>\n<p>Wählen ein Thema aus, das Du lernen möchtest, und starte das Quiz!</p>",
+                "widget": "html"
+            },
+            {
+                "title": "QuickAsk - Mode",
+                "text": "Frage eingeben und beantworten",
+                "print": "(\n$x := $curl(\"POST\", \"https://api.openai.com/v1/chat/completions\", {\n    \"model\": \"gpt-4o-mini\",\n    \"messages\": [\n      {\n        \"role\": \"system\",\n        \"content\":  \"Du bist ein Medizinprofessor und beantwortest die gestellte Frage mit umfassendem klinischen Fachwissen. \" \n      },\n      {\n        \"role\": \"user\",\n        \"content\":  form.frage \n      }\n    ]\n }, {\"Authorization\": \"openai\"}).choices[0].message.content;\n$setVariable(\"antwort\", $x);\n$refresh();\n)\n",
+                "widget": "button",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "frage": {
+                            "widget": "textarea",
+                            "style": {
+                                "width": "400px",
+                                "height": "100px"
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "display": "variable.antwort",
+                "title": "Antwort",
+                "widget": "display"
             }
         ]
     }
