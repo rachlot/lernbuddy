@@ -8,7 +8,7 @@
                 "widget": "html"
             },
             {
-                "title": "QuickAsk - Mode",
+                "title": "",
                 "text": "Frage die KI",
                 "print": "(\n$x := $curl(\"POST\", \"https://api.openai.com/v1/chat/completions\", {\n    \"model\": \"gpt-4o-mini\",\n    \"messages\": [\n      {\n        \"role\": \"system\",\n        \"content\":  \"Du bist ein Medizinprofessor und beantwortest die gestellte Frage mit einem kurzen prägnanten Satz. \" \n      },\n      {\n        \"role\": \"user\",\n        \"content\":  form.frage \n      }\n    ]\n }, {\"Authorization\": \"openai\"}).choices[0].message.content;\n$speak($x, \"de\");\n)\n",
                 "widget": "button",
@@ -33,7 +33,9 @@
                 "widget": "display"
             },
             {
-                "title": "Quiz Mode",
+                "title": "",
+                "print": "(\n  $arr := $all(\"postgres\", \"Lernziel\", null, null, null, null, {\"Fachbereich\": form.Fachbereich});\n  $index := $floor($random()*$count($arr));\n  $id := $arr[$index].ID;\n  $record := {\n    \"database\": \"postgres\", \n    \"table\": \"Lernziel\", \n    \"pk1\": $id\n  };\n  $navigate($record)\n)",
+                "text": "Quiz Mode",
                 "widget": "button",
                 "schema": {
                     "type": "object",
