@@ -1,0 +1,25 @@
+{
+    "djClassName": "com.dashjoin.function.ETL",
+    "ID": "mapping2",
+    "expressions": {
+        "foreach": "",
+        "expression": "(\n  $titel := $adHocQuery(\"postgres\", 'select \"ID\" from \"Inhalt\"').\"Inhalt.ID\";\n  $openJson(\"file:upload/mapping2.json\").(\n    $ziel := ID;\n    Inhalt.{\n      \"Lernziel\": $ziel,\n      \"Inhalt\": $@$x.$titel[$x-1]\n    }\n  )\n)"
+    },
+    "database": "postgres",
+    "oldData": "Delete All",
+    "createSchema": false,
+    "ignoreErrors": false,
+    "start": "2024-10-03T09:57:04.187+00:00",
+    "status": "success",
+    "mappings": {
+        "Lernziel2Inhalt": {
+            "sourceTable": "table",
+            "extractColumn": null,
+            "extractKey": null,
+            "pk": null,
+            "rowMapping": null,
+            "rowFilter": null
+        }
+    },
+    "end": "2024-10-03T09:57:19.213+00:00"
+}
