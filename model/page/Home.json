@@ -4,19 +4,21 @@
         "widget": "page",
         "children": [
             {
-                "html": "<h1>Willkommen beim LernBuddy!</h1>\n<p>Wählen ein Thema aus, das Du lernen möchtest, und starte das Quiz!</p>",
+                "html": "<h1>Willkommen beim LernBuddy!</h1>",
                 "widget": "html"
             },
             {
                 "title": "QuickAsk - Mode",
-                "text": "Frage eingeben und beantworten",
-                "print": "(\n$x := $curl(\"POST\", \"https://api.openai.com/v1/chat/completions\", {\n    \"model\": \"gpt-4o-mini\",\n    \"messages\": [\n      {\n        \"role\": \"system\",\n        \"content\":  \"Du bist ein Medizinprofessor und beantwortest die gestellte Frage mit umfassendem klinischen Fachwissen. \" \n      },\n      {\n        \"role\": \"user\",\n        \"content\":  form.frage \n      }\n    ]\n }, {\"Authorization\": \"openai\"}).choices[0].message.content;\n$setVariable(\"antwort\", $x);\n$refresh();\n)\n",
+                "text": "Frage die KI",
+                "print": "(\n$x := $curl(\"POST\", \"https://api.openai.com/v1/chat/completions\", {\n    \"model\": \"gpt-4o-mini\",\n    \"messages\": [\n      {\n        \"role\": \"system\",\n        \"content\":  \"Du bist ein Medizinprofessor und beantwortest die gestellte Frage mit einem kurzen prägnanten Satz. \" \n      },\n      {\n        \"role\": \"user\",\n        \"content\":  form.frage \n      }\n    ]\n }, {\"Authorization\": \"openai\"}).choices[0].message.content;\n$speak($x, \"de\");\n)\n",
                 "widget": "button",
                 "schema": {
                     "type": "object",
                     "properties": {
                         "frage": {
-                            "widget": "textarea",
+                            "widget": "voice",
+                            "language": "de",
+                            "multiline": true,
                             "style": {
                                 "width": "400px",
                                 "height": "100px"
@@ -27,8 +29,28 @@
             },
             {
                 "display": "variable.antwort",
-                "title": "Antwort",
+                "title": "",
                 "widget": "display"
+            },
+            {
+                "title": "Quiz Mode",
+                "widget": "button",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "Fachbereich": {
+                            "widget": "select",
+                            "options": "$all(\"postgres\", \"Fachbereich\").ID"
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Mein Lernfortschritt bei den Fachbereich",
+                "icon": "account_balance",
+                "href": "/postgres/Fachbereich",
+                "text": "Fachbereich",
+                "widget": "text"
             }
         ]
     }
