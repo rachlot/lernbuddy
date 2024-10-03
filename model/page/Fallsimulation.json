@@ -1,0 +1,94 @@
+{
+    "ID": "Fallsimulation",
+    "layout": {
+        "widget": "page",
+        "children": [
+            {
+                "html": "<h1>Fallsimulation</h1>",
+                "widget": "html"
+            },
+            {
+                "html":"<h2>Baue dir dein klinisches Szenario!</h2>",
+                "widget": "html"
+            },
+            {
+                "title": "Was würdest du gerne üben? Gib ein Stichwort ein (z.B. präklinischer Notfall, geriatrischer Patient).",
+                "text": "Los geht's",
+                "print": "(\n$x := $curl(\"POST\", \"https://api.openai.com/v1/chat/completions\", {\n    \"model\": \"gpt-4o-mini\",\n    \"messages\": [\n      {\n        \"role\": \"system\",\n        \"content\":  \"Du bist ein Fallsimulator und erstellst basierend auf dem Input des Benutzers ein klinisch plausibles Fallbeispiel. Du fragst den Benutzer immer, was er als nächstes tun würde, und wenn er es nicht weiß, hilfst du ihm, indem du Hinweise gibst und mögliche nächste Schritte erklärst.\" \n      },\n      {\n        \"role\": \"user\",\n        \"content\":  form.fallbeschreibung \n      }\n    ]\n }, {\"Authorization\": \"openai\"}).choices[0].message.content;\n$setVariable(\"antwort\", $x);\n$refresh();\n)\n",
+                "widget": "button",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "fallbeschreibung": {
+                            "widget": "voice",
+                            "language": "de",
+                            "multiline": true,
+                            "style": {
+                                "width": "400px"
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "html": "<br><br>",
+                "widget": "html"
+            },
+            {
+                "display": "variable.antwort",
+                "title": "Dein Fall",
+                "widget": "display"
+            },
+            {
+                "html": "<br><br>",
+                "widget": "html"
+            },
+            {
+                "html": "<br><hr><br>",
+                "widget": "html"
+            },
+            {
+                "html":"<h2>Zufälliger Fall</h2>",
+                "widget": "html"
+            },
+            {
+                
+                "text": "Los geht's",
+                "print": "(\n$x := $curl(\"POST\", \"https://api.openai.com/v1/chat/completions\", {\n    \"model\": \"gpt-4o-mini\",\n    \"messages\": [\n      {\n        \"role\": \"system\",\n        \"content\":  \"Du bist ein Fallsimulator und erstellst ein klinisch plausibles Fallbeispiel im Bereich der Anästhesie. Du fragst den Benutzer immer, was er als nächstes tun würde, und wenn er es nicht weiß, hilfst du ihm, indem du Hinweise gibst und mögliche nächste Schritte erklärst.\" \n      }\n    ]\n }, {\"Authorization\": \"openai\"}).choices[0].message.content;\n$setVariable(\"antwort1\", $x);\n$refresh();\n)\n",
+                "widget": "button"
+            },
+            {
+                "html": "<br><br>",
+                "widget": "html"
+            },
+            {
+                "display": "variable.antwort1",
+                "title": "Dein Fall",
+                "widget": "display"
+            },
+            {
+                "html": "<br><br>",
+                "widget": "html"
+            },
+            {
+                "title": "Wie würdest du vorgehen?",
+                "text": "Gib deine Antwort ein",
+                "print": "(\n$x := $curl(\"POST\", \"https://api.openai.com/v1/chat/completions\", {\n    \"model\": \"gpt-4o-mini\",\n    \"messages\": [\n      {\n        \"role\": \"system\",\n        \"content\":  \"Du bist ein Fallsimulator und erstellst ein klinsich plausibles Fallbeispiel im Bereich der Anästhesie. Du bewertest die Antwort des Benutzers auf das zuvor erstellte zufällige Fallbeispiel und hilfst ihm bei den nächsten Schritten.\" \n      },\n      {\n        \"role\": \"user\",\n        \"content\":  form.Antwort \n      }\n    ]\n }, {\"Authorization\": \"openai\"}).choices[0].message.content;\n$setVariable(\"antwort\", $x);\n$refresh();\n)\n",
+                "widget": "button",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "Antwort": {
+                            "widget": "textarea",
+                            "language": "de",
+                            "multiline": true,
+                            "style": {
+                                "width": "400px"
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}
