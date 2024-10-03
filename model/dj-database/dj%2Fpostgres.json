@@ -13,6 +13,26 @@
                     "ref": "dj/postgres/Fachbereich/ID",
                     "displayWith": "fk"
                 }
+            },
+            "instanceLayout": {
+                "widget": "page",
+                "children": [
+                    {
+                        "widget": "container",
+                        "children": [
+                            {
+                                "html": "<br>",
+                                "widget": "html"
+                            },
+                            {
+                                "text": "Stelle Frage",
+                                "print": "(\n  $arr := $all(\"postgres\", \"Lernziel2Inhalt\", null, null, null, null, {\"Lernziel\": value.ID});\n  $index := $floor($random()*$count($arr));\n  $id := $arr[$index].Inhalt;\n  $read(\"postgres\", \"Inhalt\", $id).Inhalt\n)",
+                                "title": "",
+                                "widget": "button"
+                            }
+                        ]
+                    }
+                ]
             }
         },
         "Fachbereich": {
