@@ -20,8 +20,7 @@
                             "language": "de",
                             "multiline": true,
                             "style": {
-                                "width": "400px",
-                                "height": "100px"
+                                "width": "400px"
                             }
                         }
                     }
@@ -42,13 +41,16 @@
                     "properties": {
                         "Fachbereich": {
                             "widget": "select",
-                            "options": "$all(\"postgres\", \"Fachbereich\").ID"
+                            "options": "$all(\"postgres\", \"Fachbereich\").ID",
+                            "style": {
+                                "width": "400px"
+                            }
                         }
                     }
                 }
             },
             {
-                "title": "Mein Lernfortschritt bei den Fachbereich",
+                "title": "Mein Lernfortschritt bei den Fachbereichen",
                 "icon": "account_balance",
                 "href": "/postgres/Fachbereich",
                 "text": "Fachbereich",
