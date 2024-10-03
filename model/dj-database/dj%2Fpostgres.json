@@ -7,7 +7,13 @@
     "ID": "dj/postgres",
     "tables": {
         "Lernziel": {
-            "dj-label": "${Ziel}"
+            "dj-label": "${Ziel}",
+            "properties": {
+                "Fachbereich": {
+                    "ref": "dj/postgres/Fachbereich/ID",
+                    "displayWith": "fk"
+                }
+            }
         },
         "Fachbereich": {
             "instanceLayout": {
