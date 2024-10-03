@@ -27,16 +27,20 @@
                                 "query": "lernziel",
                                 "arguments": "{\"Fachbereich\": value.ID}",
                                 "widget": "table"
-                            },
-                            {
-                                "title": "Edit Record",
-                                "widget": "edit"
                             }
                         ]
+                    }
+                ]
+            },
+            "tableLayout": {
+                "widget": "page",
+                "children": [
+                    {
+                        "title": "Table: ${value.name}",
+                        "widget": "table"
                     },
                     {
-                        "title": "Related Records",
-                        "widget": "links"
+                        "widget": "dj-table-metadata"
                     }
                 ]
             }
