@@ -2,6 +2,9 @@
     "id": "lernziel",
     "ID": "lernziel",
     "type": "read",
+    "roles": [
+        "authenticated"
+    ],
     "database": "dj/postgres",
     "query-pointer": "0.sql",
     "arguments": {

@@ -106,7 +106,10 @@
                     "ref": "dj/postgres/Lernziel/ID",
                     "displayWith": "fk"
                 }
-            }
+            },
+            "writeRoles": [
+                "authenticated"
+            ]
         }
     },
     "readRoles": [
