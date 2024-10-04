@@ -1,16 +1,12 @@
-create table "Topic" (
-  "ID" text primary key,
-  "Title" text,
-  "Content" text,
-  "Parent" text references "Topic",
-  "Lernziel" text,
-  "Keyword" text
-);
-
-create table "Result" (
+create table "Ergebnis" (
   "ID" serial primary key,
-  "Topic" text references "Topic",
-  "User" text,
-  "Time" timestamp,
-  "Prozent" int
+  lernziel text,
+  paper text,
+  frage text,
+  antwort text,
+  feedback text,
+  prozent int,
+  email text,
+  zeit timestamp,
+  reset boolean
 )

@@ -99,6 +99,14 @@
                     "displayWith": "fk"
                 }
             }
+        },
+        "Ergebnis": {
+            "properties": {
+                "lernziel": {
+                    "ref": "dj/postgres/Lernziel/ID",
+                    "displayWith": "fk"
+                }
+            }
         }
     },
     "readRoles": [
