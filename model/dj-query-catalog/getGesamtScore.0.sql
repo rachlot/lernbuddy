@@ -1,4 +1,7 @@
 SELECT
- AVG("Ergebnis"."prozent") AS "gesamtdurchschnitt_score"
+  AVG("Ergebnis"."prozent") AS "Gesamtfortschritt in Prozent"
 FROM
-  "Ergebnis";
+  "Ergebnis"
+    INNER JOIN "Lernziel" ON "Ergebnis"."lernziel" = "Lernziel"."ID"
+WHERE
+  "Ergebnis"."email" = 'admin@localhost' AND "Ergebnis"."reset" = 'false'

@@ -1,6 +1,6 @@
 SELECT
-  SUM(CASE WHEN "Ergebnis"."feedback" IS NOT NULL THEN 1 ELSE 0 END) * 100 / COUNT(*) AS "prozent_bearbeitet"
+  "Fachbereich"."ID" AS "Fachbereich", "Lernziel"."_dj_source", "Ergebnis"."prozent" AS "Ergebnis in Prozent"
 FROM
-  "Ergebnis"
-WHERE
-  "Ergebnis"."lernziel" = ${lernziel};
+  "Fachbereich"
+    INNER JOIN "Lernziel" ON "Fachbereich"."ID" = "Lernziel"."Fachbereich"
+    INNER JOIN "Ergebnis" ON "Lernziel"."ID" = "Ergebnis"."lernziel"
