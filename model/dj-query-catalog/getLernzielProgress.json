@@ -1,0 +1,9 @@
+{
+    "ID": "getLernzielProgress",
+    "type": "read",
+    "database": "dj/postgres",
+    "arguments": {
+        "lernziel": "${Lernziel}"
+    },
+    "query-pointer": "0.sql"
+}

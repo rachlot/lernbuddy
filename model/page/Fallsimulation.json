@@ -24,7 +24,7 @@
                             "language": "de",
                             "multiline": true,
                             "style": {
-                                "width": "400px"
+                                "width": "80vw"
                             }
                         }
                     }
@@ -83,7 +83,7 @@
                             "language": "de",
                             "multiline": true,
                             "style": {
-                                "width": "400px"
+                                "width": "80vw"
                             }
                         }
                     }

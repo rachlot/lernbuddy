@@ -1,0 +1,9 @@
+{
+    "ID": "getFachbereichProgress",
+    "type": "read",
+    "database": "dj/postgres",
+    "arguments": {
+        "fachbereich": "${Fachbereich}"
+    },
+    "query-pointer": "0.sql"
+}
