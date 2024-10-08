@@ -37,12 +37,14 @@
                         "title": "Lernfortschritt insgesamt",
                         "database": "postgres",
                         "query": "getGesamtScore",
+                        "arguments": "{\"user\": email}",
                         "widget": "table"
                     },
                     {
                         "title": "Lernfortschritt in den einzelnen Fachbereichen",
                         "database": "postgres",
                         "query": "getFachbereichProgress",
+                        "arguments": "{\"user\": email}",
                         "widget": "table"
                     }
                 ]
@@ -51,12 +53,14 @@
                 "title": "Lernzielübersicht",
                 "database": "postgres",
                 "query": "getLernzielScore",
+                "arguments": "{\"user\": email}",
                 "widget": "table"
             },
             {
                 "database": "postgres",
                 "query": "Lernziele mit Verbesserungsbedarf",
                 "title": "Lernziele mit Verbesserungsbedarf",
+                "arguments": "{\"user\": email}",
                 "widget": "table"
             }
         ]
