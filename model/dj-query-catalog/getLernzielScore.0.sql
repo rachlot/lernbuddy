@@ -4,3 +4,5 @@ FROM
   "Lernziel"
     INNER JOIN "Fachbereich" ON "Lernziel"."Fachbereich" = "Fachbereich"."ID"
     INNER JOIN "Ergebnis" ON "Lernziel"."ID" = "Ergebnis"."lernziel"
+WHERE
+  "Ergebnis"."email" = ${user}

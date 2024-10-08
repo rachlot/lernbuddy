@@ -4,6 +4,6 @@ FROM
   "Ergebnis"
     INNER JOIN "Lernziel" ON "Ergebnis"."lernziel" = "Lernziel"."ID"
 WHERE
-  "Ergebnis"."email" = 'admin@localhost' AND "Ergebnis"."reset" = 'false'
+  "Ergebnis"."email" = ${user}
 ORDER BY
    "Ergebnis"."ID"

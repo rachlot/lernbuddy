@@ -5,5 +5,11 @@
     "query-pointer": "0.sql",
     "roles": [
         "authenticated"
-    ]
+    ],
+    "arguments": {
+        "user": {
+            "type": "string",
+            "sample": "admin@localhost"
+        }
+    }
 }

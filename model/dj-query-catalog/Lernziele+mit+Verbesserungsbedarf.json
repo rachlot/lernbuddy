@@ -1,5 +1,5 @@
 {
-    "ID": "getFachbereichProgress",
+    "ID": "Lernziele mit Verbesserungsbedarf",
     "type": "read",
     "database": "dj/postgres",
     "query-pointer": "0.sql",
