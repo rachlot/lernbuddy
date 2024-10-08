@@ -10,7 +10,7 @@
             {
                 "title": "QuickAsk",
                 "text": "Frage die KI",
-                "print": "(\n$x := $curl(\"POST\", \"https://api.openai.com/v1/chat/completions\", {\n    \"model\": \"gpt-4o-mini\",\n    \"messages\": [\n      {\n        \"role\": \"system\",\n        \"content\":  \"Du bist ein Medizinprofessor und beantwortest die gestellte Frage mit einem kurzen prägnanten Satz. \" \n      },\n      {\n        \"role\": \"user\",\n        \"content\":  form.frage \n      }\n    ]\n }, {\"Authorization\": \"openai\"}).choices[0].message.content;\n$speak($x, \"de\");\n)\n",
+                "print": "(\n$x := $curl(\"POST\", \"https://api.openai.com/v1/chat/completions\", {\n    \"model\": \"gpt-4o-mini\",\n    \"messages\": [\n      {\n        \"role\": \"system\",\n        \"content\":  \"Du bist ein Medizinprofessor und beantwortest die gestellte Frage mit einem kurzen prägnanten Satz. \" \n      },\n      {\n        \"role\": \"user\",\n        \"content\":  form.frage \n      }\n    ]\n }, {\"Authorization\": \"openai\", \"dj-timeout-seconds\": 60}).choices[0].message.content;\n$speak($x, \"de\");\n)\n",
                 "widget": "button",
                 "schema": {
                     "type": "object",
