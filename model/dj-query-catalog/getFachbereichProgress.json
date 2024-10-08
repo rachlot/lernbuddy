@@ -2,5 +2,8 @@
     "ID": "getFachbereichProgress",
     "type": "read",
     "database": "dj/postgres",
-    "query-pointer": "0.sql"
+    "query-pointer": "0.sql",
+    "roles": [
+        "authenticated"
+    ]
 }
