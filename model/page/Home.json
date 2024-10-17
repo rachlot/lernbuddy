@@ -4,13 +4,13 @@
         "widget": "page",
         "children": [
             {
-                "html": "<h1>Willkommen beim LernBuddy!</h1>",
+                "html": "<h1>Willkommen beim LernBuddy!</h1><h3>Unser System unterstützt dich gezielt bei der Vorbereitung auf deine Anästhesieklausur. Mit adaptiven Lernpfaden, realitätsnahen Fallsimulationen und stets aktuellen Fachinformationen bieten wir dir die ideale Vorbereitung – angepasst an deine Lernziele und dein Tempo. Entdecke eine neue Art des Lernens, selbstbestimmt und zielgerichtet, genau auf dich zugeschnitten!</h3>",
                 "widget": "html"
             },
             {
                 "title": "QuickAsk",
                 "text": "Frage die KI",
-                "print": "(\n$x := $curl(\"POST\", \"https://api.openai.com/v1/chat/completions\", {\n    \"model\": \"gpt-4o-mini\",\n    \"messages\": [\n      {\n        \"role\": \"system\",\n        \"content\":  \"Du bist ein Medizinprofessor und beantwortest die gestellte Frage mit einem kurzen prägnanten Satz. \" \n      },\n      {\n        \"role\": \"user\",\n        \"content\":  form.frage \n      }\n    ]\n }, {\"Authorization\": \"openai\", \"dj-timeout-seconds\": 60}).choices[0].message.content;\n$speak($x, \"de\");\n)\n",
+                "print": "(\n$x := $curl(\"POST\", \"https://api.openai.com/v1/chat/completions\", {\n    \"model\": \"gpt-4o-mini\",\n    \"messages\": [\n      {\n        \"role\": \"system\",\n        \"content\":  \"Du bist ein erfahrener Medizinprofessor und beantwortest die gestellte Frage fachlich korrekt und präzise. Deine Antwort soll in einem klaren und prägnanten Satz erfolgen, der direkt auf die Frage eingeht und alle relevanten medizinischen Fakten enthält, ohne unnötige Ausschweifungen.\" \n      },\n      {\n        \"role\": \"user\",\n        \"content\":  form.frage \n      }\n    ]\n }, {\"Authorization\": \"openai\", \"dj-timeout-seconds\": 60}).choices[0].message.content;\n$speak($x, \"de\");\n)\n",
                 "widget": "button",
                 "schema": {
                     "type": "object",
