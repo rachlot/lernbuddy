@@ -1,0 +1,8 @@
+$all("postgres", "Fachbereich").{
+  "data": ID,
+  "children": $all("postgres", "Lernziel", null, null, null, false, {"Fachbereich": ID}).{
+  "database": "postgres",
+  "table": "Lernziel",
+  "pk1": ID
+}
+}

@@ -4,9 +4,9 @@
         "widget": "page",
         "children": [
             {
-                "expression": "$all(\"postgres\", \"Fachbereich\").{\n  \"data\": ID,\n  \"children\": $all(\"postgres\", \"Lernziel\", null, null, null, false, {\"Fachbereich\": ID}).{\n  \"database\": \"postgres\",\n  \"table\": \"Lernziel\",\n  \"pk1\": ID\n}\n}",
                 "title": "Fachbereich -> Lernziel",
-                "widget": "tree"
+                "widget": "tree",
+                "expression-pointer": "0.jsonata"
             }
         ]
     }

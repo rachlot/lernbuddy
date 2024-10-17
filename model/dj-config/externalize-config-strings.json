@@ -4,7 +4,9 @@
         "dj-query-catalog: query",
         "dj-database: print",
         "dj-database: display",
+        "dj-database: expression",
         "page: print",
-        "page: display"
+        "page: display",
+        "page: expression"
     ]
 }
