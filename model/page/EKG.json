@@ -1,0 +1,24 @@
+{
+    "ID": "EKG",
+    "layout": {
+        "widget": "page",
+        "children": [
+            {
+                "display-pointer": "0.txt",
+                "widget": "display"
+            },
+            {
+                "widget": "button",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "Diagnose": {
+
+                        }
+                    }
+                },
+                "print-pointer": "1.txt"
+            }
+        ]
+    }
+}

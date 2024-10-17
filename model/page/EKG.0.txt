@@ -1,0 +1,10 @@
+(
+$arr := $openCsv("file:upload/ekg.csv");
+$index := $floor($random()*$count($arr));
+$ekg := $arr[$index];
+$setVariable("ekg", $ekg);
+{
+  "img": $ekg.url,
+  "width": 400
+}
+)
