@@ -56,24 +56,6 @@
                     }
                 },
                 "print-pointer": "2.txt"
-            },
-            {
-                "html": "<br><br>",
-                "widget": "html"
-            },
-            {
-                "title": "Mein Lernfortschritt bei den Fachbereichen",
-                "icon": "account_balance",
-                "href": "/postgres/Fachbereich",
-                "text": "Fachbereich",
-                "widget": "text"
-            },
-            {
-                "title": "Fallsimulation",
-                "icon": "accessible_forward",
-                "href": "/page/Fallsimulation",
-                "text": "Fallsimulation",
-                "widget": "text"
             }
         ]
     }
