@@ -23,17 +23,26 @@
                         "widget": "display"
                     },
                     {
-                        "title": "",
-                        "print": "(\n$setVariable(\"result\" & value.ID, \"\");\n$x := $curl(\"POST\", \"https://api.openai.com/v1/chat/completions\", {\n    \"model\": \"gpt-4o-mini\",\n    \"messages\": [\n      {\n        \"role\": \"system\",\n        \"content\": \"Du bist ein Medizin Professor. Stelle mir eine Frage zu dem Text den ich Dir gebe.\"\n      },\n      {\n        \"role\": \"user\",\n        \"content\": variable.Inhalt\n      }\n    ]\n }, {\"Authorization\": \"openai\", \"dj-timeout-seconds\": 60}).choices[0].message.content;\n$setVariable(\"frage\" & value.ID, $x);\n$refresh();\n)\n",
-                        "text": "Los geht's!",
-                        "widget": "button"
+                        "widget": "container",
+                        "children": [
+                            {
+                                "title": "",
+                                "print": "(\n$setVariable(\"result\" & value.ID, \"\");\n$x := $curl(\"POST\", \"https://api.openai.com/v1/chat/completions\", {\n    \"model\": \"gpt-4o-mini\",\n    \"messages\": [\n      {\n        \"role\": \"system\",\n        \"content\": \"Du bist ein strenger Professor der Medizin, der Studierende anhand der Fachliteratur prüft. Ich werde Dir einen Text geben, und Du wirst mir dazu eine relevante und fachspezifische Frage stellen, die direkt aus dem Text hervorgeht und dem Niveau des Studierenden entspricht. Deine Antwort soll ausschließlich die Frage beinhalten, ohne jegliche Einleitung, Erklärung oder zusätzliche Informationen. Stelle direkt die Frage.”\n\"\n      },\n      {\n        \"role\": \"user\",\n        \"content\": variable.Inhalt\n      }\n    ]\n }, {\"Authorization\": \"openai\", \"dj-timeout-seconds\": 60}).choices[0].message.content;\n$setVariable(\"frage\" & value.ID, $x);\n$refresh();\n)\n",
+                                "text": "Los geht's!",
+                                "widget": "button"
+                            },
+                            {
+                                "html": "<br></br>",
+                                "widget": "html"
+                            }
+                        ]
                     },
                     {
                         "display": "$lookup(variable, \"frage\" & value.ID)",
                         "widget": "display"
                     },
                     {
-                        "print": "(\n$x := $curl(\"POST\", \"https://api.openai.com/v1/chat/completions\", {\n    \"model\": \"gpt-4o-mini\",\n    \"response_format\": { \"type\": \"json_object\" },\n    \"messages\": [\n      {\n        \"role\": \"system\",\n        \"content\": \"Du bist ein strenger Medizin Professor. Stelle mir eine Fachfrage zu dem Text den ich Dir gebe. Anschließend bewertest Du die Antwort mit einem JSON Objekt, das die folgenden Felder enthält:\nfeedback: ein feedback mit 60 wörtern, mit Erklärung zur richtigen Antwort, Hinweise auf häufige Fehler und Tipps, wie das Lernziel besser verstanden werden kann\nprozent: ein prozentwert der die güte der antwort beschreibt\n\"\n      },\n      {\n        \"role\": \"user\",\n        \"content\": variable.Inhalt\n      },\n      {\n        \"role\": \"assistant\",\n        \"content\": $lookup(variable, \"frage\" & value.ID)\n      },\n      {\n        \"role\": \"user\",\n        \"content\": form.antwort\n      }\n    ]\n }, {\"Authorization\": \"openai\", \"dj-timeout-seconds\": 60}).choices[0].message.content;\n $setVariable(\"result\" & value.ID, $parseJson($x));\n$create(\"postgres\", \"Ergebnis\", {\n  \"lernziel\": value.ID,\n  \"paper\": 0,\n  \"frage\": $lookup(variable, \"frage\" & value.ID),\n  \"antwort\": form.antwort,\n  \"feedback\": $parseJson($x).feedback,\n  \"prozent\": $parseJson($x).prozent,\n  \"email\": email,\n  \"zeit\": $now()\n});\n $refresh();\n)\n",
+                        "print": "(\n$x := $curl(\"POST\", \"https://api.openai.com/v1/chat/completions\", {\n    \"model\": \"gpt-4o-mini\",\n    \"response_format\": { \"type\": \"json_object\" },\n    \"messages\": [\n      {\n        \"role\": \"system\",\n        \"content\": \"Du bist ein strenger Professor der Medizin, der Studierende anhand der Fachliteratur prüft. Ich werde Dir einen Text geben, und Du wirst mir dazu eine relevante und fachspezifische Frage stellen, die direkt aus dem Text hervorgeht und dem Niveau des Studierenden entspricht. Verwende ausschließlich Informationen aus dem Text. Anschließend bewertest Du die Antwort anhand folgender Kriterien: Übereinstimmung mit den Inhalten des Textes, Detailliertheit und Korrektheit\nDie Bewertung erfolgt in einem JSON-Objekt mit den folgenden Feldern:\nfeedback: Ein 100 Wörter umfassendes Feedback, das detailliert die richtige Antwort erklärt, häufige Fehler aufzeigt und Tipps gibt, welche an das Thema angrenzenden Bereiche der Studierende noch lernen muss, damit er das Lernziel besser versteht.\nprozent: Ein Prozentwert, der die Qualität der Antwort beschreibt, basierend auf den oben genannten Kriterien\"\n      },\n      {\n        \"role\": \"user\",\n        \"content\": variable.Inhalt\n      },\n      {\n        \"role\": \"assistant\",\n        \"content\": $lookup(variable, \"frage\" & value.ID)\n      },\n      {\n        \"role\": \"user\",\n        \"content\": form.antwort\n      }\n    ]\n }, {\"Authorization\": \"openai\", \"dj-timeout-seconds\": 60}).choices[0].message.content;\n $setVariable(\"result\" & value.ID, $parseJson($x));\n$create(\"postgres\", \"Ergebnis\", {\n  \"lernziel\": value.ID,\n  \"paper\": 0,\n  \"frage\": $lookup(variable, \"frage\" & value.ID),\n  \"antwort\": form.antwort,\n  \"feedback\": $parseJson($x).feedback,\n  \"prozent\": $parseJson($x).prozent,\n  \"email\": email,\n  \"zeit\": $now()\n});\n $refresh();\n)\n",
                         "text": "Sende Antwort",
                         "expression": "",
                         "widget": "button",
