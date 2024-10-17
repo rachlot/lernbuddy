@@ -1,4 +1,9 @@
 (
+  $arr := $all("postgres", "Lernziel2Inhalt", null, null, null, null, {"Lernziel": value.ID});
+  $index := $floor($random()*$count($arr));
+  $id := $arr[$index].Inhalt;
+  $inhalt := $read("postgres", "Inhalt", $id).Inhalt;
+  $setVariable("Inhalt", $inhalt);
 $setVariable("result" & value.ID, "");
 $messages := [
       {
@@ -7,7 +12,7 @@ $messages := [
       },
       {
         "role": "user",
-        "content": variable.Inhalt
+        "content": $inhalt
       }
     ];
 $log($messages);
