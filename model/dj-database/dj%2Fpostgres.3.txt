@@ -1,8 +1,5 @@
 (
-$x := $curl("POST", "https://api.openai.com/v1/chat/completions", {
-    "model": "gpt-4o-mini",
-    "response_format": { "type": "json_object" },
-    "messages": [
+$messages := [
       {
         "role": "system",
         "content": "Du bist ein strenger Professor der Medizin, der Studierende anhand der Fachliteratur prüft. Ich werde Dir einen Text geben, und Du wirst mir dazu eine relevante und fachspezifische Frage stellen, die direkt aus dem Text hervorgeht und dem Niveau des Studierenden entspricht. Verwende ausschließlich Informationen aus dem Text. Anschließend bewertest Du die Antwort anhand folgender Kriterien: Übereinstimmung mit den Inhalten des Textes, Detailliertheit und Korrektheit
@@ -22,7 +19,12 @@ prozent: Ein Prozentwert, der die Qualität der Antwort beschreibt, basierend au
         "role": "user",
         "content": form.antwort
       }
-    ]
+    ];
+$log($messages);
+$x := $curl("POST", "https://api.openai.com/v1/chat/completions", {
+    "model": "gpt-4o-mini",
+    "response_format": { "type": "json_object" },
+    "messages": $messages
  }, {"Authorization": "openai", "dj-timeout-seconds": 60}).choices[0].message.content;
  $setVariable("result" & value.ID, $parseJson($x));
 $create("postgres", "Ergebnis", {

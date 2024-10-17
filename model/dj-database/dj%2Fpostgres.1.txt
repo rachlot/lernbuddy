@@ -1,18 +1,19 @@
 (
 $setVariable("result" & value.ID, "");
-$x := $curl("POST", "https://api.openai.com/v1/chat/completions", {
-    "model": "gpt-4o-mini",
-    "messages": [
+$messages := [
       {
         "role": "system",
-        "content": "Du bist ein strenger Professor der Medizin, der Studierende anhand der Fachliteratur prüft. Ich werde Dir einen Text geben, und Du wirst mir dazu eine relevante und fachspezifische Frage stellen, die direkt aus dem Text hervorgeht und dem Niveau des Studierenden entspricht. Deine Antwort soll ausschließlich die Frage beinhalten, ohne jegliche Einleitung, Erklärung oder zusätzliche Informationen. Stelle direkt die Frage.”
-"
+        "content": "Du bist ein strenger Professor der Medizin, der Studierende anhand der Fachliteratur prüft. Ich werde Dir einen Text geben, und Du wirst mir dazu eine relevante und fachspezifische Frage stellen, die direkt aus dem Text hervorgeht und dem Niveau des Studierenden entspricht. Deine Antwort soll ausschließlich die Frage beinhalten, ohne jegliche Einleitung, Erklärung oder zusätzliche Informationen. Stelle direkt die Frage.”"
       },
       {
         "role": "user",
         "content": variable.Inhalt
       }
-    ]
+    ];
+$log($messages);
+$x := $curl("POST", "https://api.openai.com/v1/chat/completions", {
+    "model": "gpt-4o-mini",
+    "messages": $messages
  }, {"Authorization": "openai", "dj-timeout-seconds": 60}).choices[0].message.content;
 $setVariable("frage" & value.ID, $x);
 $refresh();
