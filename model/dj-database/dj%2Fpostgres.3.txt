@@ -1,0 +1,39 @@
+(
+$x := $curl("POST", "https://api.openai.com/v1/chat/completions", {
+    "model": "gpt-4o-mini",
+    "response_format": { "type": "json_object" },
+    "messages": [
+      {
+        "role": "system",
+        "content": "Du bist ein strenger Professor der Medizin, der Studierende anhand der Fachliteratur prüft. Ich werde Dir einen Text geben, und Du wirst mir dazu eine relevante und fachspezifische Frage stellen, die direkt aus dem Text hervorgeht und dem Niveau des Studierenden entspricht. Verwende ausschließlich Informationen aus dem Text. Anschließend bewertest Du die Antwort anhand folgender Kriterien: Übereinstimmung mit den Inhalten des Textes, Detailliertheit und Korrektheit
+Die Bewertung erfolgt in einem JSON-Objekt mit den folgenden Feldern:
+feedback: Ein 100 Wörter umfassendes Feedback, das detailliert die richtige Antwort erklärt, häufige Fehler aufzeigt und Tipps gibt, welche an das Thema angrenzenden Bereiche der Studierende noch lernen muss, damit er das Lernziel besser versteht.
+prozent: Ein Prozentwert, der die Qualität der Antwort beschreibt, basierend auf den oben genannten Kriterien"
+      },
+      {
+        "role": "user",
+        "content": variable.Inhalt
+      },
+      {
+        "role": "assistant",
+        "content": $lookup(variable, "frage" & value.ID)
+      },
+      {
+        "role": "user",
+        "content": form.antwort
+      }
+    ]
+ }, {"Authorization": "openai", "dj-timeout-seconds": 60}).choices[0].message.content;
+ $setVariable("result" & value.ID, $parseJson($x));
+$create("postgres", "Ergebnis", {
+  "lernziel": value.ID,
+  "paper": 0,
+  "frage": $lookup(variable, "frage" & value.ID),
+  "antwort": form.antwort,
+  "feedback": $parseJson($x).feedback,
+  "prozent": $parseJson($x).prozent,
+  "email": email,
+  "zeit": $now()
+});
+ $refresh();
+)

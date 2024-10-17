@@ -1,0 +1,1 @@
+$lookup(variable, "frage" & value.ID)

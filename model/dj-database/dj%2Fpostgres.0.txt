@@ -1,0 +1,7 @@
+(
+  $arr := $all("postgres", "Lernziel2Inhalt", null, null, null, null, {"Lernziel": value.ID});
+  $index := $floor($random()*$count($arr));
+  $id := $arr[$index].Inhalt;
+  $setVariable("Inhalt", $read("postgres", "Inhalt", $id).Inhalt);
+  value.Ziel
+)

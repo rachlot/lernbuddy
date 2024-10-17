@@ -1,0 +1,10 @@
+{
+    "ID": "externalize-config-strings",
+    "list": [
+        "dj-query-catalog: query",
+        "dj-database: print",
+        "dj-database: display",
+        "page: print",
+        "page: display"
+    ]
+}

@@ -1,0 +1,11 @@
+(
+  $arr := $all("postgres", "Lernziel", null, null, null, null, {"Fachbereich": form.Fachbereich});
+  $index := $floor($random()*$count($arr));
+  $id := $arr[$index].ID;
+  $record := {
+    "database": "postgres", 
+    "table": "Lernziel", 
+    "pk1": $id
+  };
+  $navigate($record)
+)
