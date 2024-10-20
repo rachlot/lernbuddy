@@ -14,5 +14,6 @@ $x := $curl("POST", "https://api.openai.com/v1/chat/completions", {
     "model": "gpt-4o-mini",
     "messages": $messages
  }, {"Authorization": "openai", "dj-timeout-seconds": 60}).choices[0].message.content;
+$setVariable("antwort", $x)
 $speak($x, "de");
 )

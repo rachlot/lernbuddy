@@ -18,7 +18,7 @@
                 "schema": {
                     "type": "object",
                     "properties": {
-                        "fallbeschreibung": {
+                        "Antwort": {
                             "widget": "voice",
                             "language": "de",
                             "multiline": true,
@@ -81,8 +81,7 @@
                             }
                         }
                     }
-                },
-                "print-pointer": "4.txt"
+                }
             }
         ]
     }
