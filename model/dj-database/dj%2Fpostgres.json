@@ -43,7 +43,6 @@
                     },
                     {
                         "text": "Sende Antwort",
-                        "expression": "",
                         "widget": "button",
                         "schema": {
                             "type": "object",
@@ -58,7 +57,8 @@
                                 }
                             }
                         },
-                        "print-pointer": "3.txt"
+                        "print-pointer": "3.txt",
+                        "expression-pointer": "0.jsonata"
                     },
                     {
                         "widget": "display",

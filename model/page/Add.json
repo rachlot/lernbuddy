@@ -1,0 +1,29 @@
+{
+    "ID": "Add",
+    "layout": {
+        "widget": "page",
+        "children": [
+            {
+                "display-pointer": "0.txt",
+                "widget": "display"
+            },
+            {
+                "print-pointer": "2.txt",
+                "widget": "button",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "field": {
+
+                        }
+                    }
+                }
+            },
+            {
+                "text": "Reset",
+                "print-pointer": "1.txt",
+                "widget": "button"
+            }
+        ]
+    }
+}

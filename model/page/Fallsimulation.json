@@ -38,7 +38,7 @@
                 "title": "Dein Fall",
                 "widget": "display",
                 "display-pointer": "1.txt"
-            },
+            },    
             {
                 "html": "<br><hr><br>",
                 "widget": "html"
@@ -67,7 +67,7 @@
             },
             {
                 "title": "Wie würdest du vorgehen?",
-                "text": "Gib deine Antwort ein",
+                "text": "Los geht's",
                 "widget": "button",
                 "schema": {
                     "type": "object",
@@ -82,6 +82,10 @@
                         }
                     }
                 }
+            },
+            {
+                "html": "<br><br>",
+                "widget": "html"
             }
         ]
     }

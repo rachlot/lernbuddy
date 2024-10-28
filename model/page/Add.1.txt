@@ -1,0 +1,4 @@
+(
+$setVariable("messages", []);
+$refresh();
+)

@@ -1,0 +1,27 @@
+($messages := $append(variable.messages, {
+    "role": "user",
+    "content": form.Antwort
+});
+
+$x := $curl("POST", "https://api.openai.com/v1/chat/completions", {
+    "model": "gpt-4o-mini",  
+    "messages": $messages
+}, {
+    "Authorization": openai,  
+    "dj-timeout-seconds": 60
+}).choices[0].message.content;
+
+$log($x);
+
+
+$setVariable("fallbeschreibung2", $x);
+
+$log(fallbeschreibung2);
+
+$setVariable("messages", $append($messages, {
+    "role": "assistant",
+    "content": $x
+}));
+
+$refresh();
+)
