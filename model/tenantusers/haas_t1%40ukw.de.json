@@ -1,0 +1,7 @@
+{
+    "ID": "haas_t1@ukw.de",
+    "active": true,
+    "roles": [
+        "authenticated"
+    ]
+}

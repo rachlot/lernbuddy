@@ -1,0 +1,7 @@
+{
+    "ID": "carlos@hoelzing.com",
+    "active": true,
+    "roles": [
+        "authenticated"
+    ]
+}
