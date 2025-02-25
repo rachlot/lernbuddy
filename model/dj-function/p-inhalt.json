@@ -1,0 +1,25 @@
+{
+    "ID": "p-inhalt",
+    "djClassName": "com.dashjoin.function.ETL",
+    "expressions": {
+        "foreach": "",
+        "expression": "(\n  $content := $openText(\"file:upload/export.txt\") ~> $substringAfter('Fehler gefunden?');\n  $rest := $substringAfter($content, 'Register');\n  $toc := $substringBefore($content, 'Register');\n  $start := $toc.$split('\\n')[$!=''][$contains(/^[0-9][0-9]?\\./)];\n  $end := $append(null, $start);\n  $zip($end, $start)[$[0]].{\n    \"ID\": $[0],\n    \"Inhalt\": $substringAfter($rest, $[0]) ~> $substringBefore($[1])\n  }\n)"
+    },
+    "mappings": {
+        "Inhalt": {
+            "sourceTable": "table",
+            "extractColumn": null,
+            "extractKey": null,
+            "pk": null,
+            "rowMapping": null,
+            "rowFilter": null
+        }
+    },
+    "createSchema": true,
+    "ignoreErrors": false,
+    "oldData": "Delete All",
+    "database": "postgres",
+    "start": "2025-02-25T14:05:48.706+00:00",
+    "status": "success",
+    "end": "2025-02-25T14:05:49.433+00:00"
+}

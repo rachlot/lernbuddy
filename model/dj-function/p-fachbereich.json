@@ -1,0 +1,25 @@
+{
+    "ID": "p-fachbereich",
+    "djClassName": "com.dashjoin.function.ETL",
+    "expressions": {
+        "foreach": "",
+        "expression": "$openCsv('file:upload/p-fachbereich.csv')"
+    },
+    "mappings": {
+        "Fachbereich": {
+            "sourceTable": "table",
+            "extractColumn": null,
+            "extractKey": null,
+            "pk": null,
+            "rowMapping": null,
+            "rowFilter": null
+        }
+    },
+    "createSchema": true,
+    "ignoreErrors": false,
+    "oldData": "Delete All",
+    "database": "postgres",
+    "start": "2025-02-25T13:43:46.838+00:00",
+    "status": "success",
+    "end": "2025-02-25T13:43:47.200+00:00"
+}

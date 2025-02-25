@@ -1,0 +1,25 @@
+{
+    "ID": "p-lernziel",
+    "djClassName": "com.dashjoin.function.ETL",
+    "expressions": {
+        "foreach": "",
+        "expression": "$openCsv('file:upload/p-lernziel.csv', {\"withDelimiter\": \";\"})"
+    },
+    "mappings": {
+        "Lernziel": {
+            "sourceTable": "table",
+            "extractColumn": null,
+            "extractKey": null,
+            "pk": null,
+            "rowMapping": null,
+            "rowFilter": null
+        }
+    },
+    "createSchema": true,
+    "ignoreErrors": false,
+    "oldData": "Delete All",
+    "database": "postgres",
+    "start": "2025-02-25T14:10:35.415+00:00",
+    "status": "success",
+    "end": "2025-02-25T14:10:35.706+00:00"
+}
