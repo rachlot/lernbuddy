@@ -14,9 +14,9 @@ $x := $curl("POST", "https://api.openai.com/v1/chat/completions", {
 $log($x);
 
 
-$setVariable("fallbeschreibung2", $x);
+$setVariable("fallbeschreibung3", $x);
 
-$log(fallbeschreibung2);
+$log(fallbeschreibung3);
 
 $setVariable("messages", $append($messages, {
     "role": "assistant",

@@ -22,6 +22,14 @@
                         "widget": "table"
                     },
                     {
+                        "html": "<p style='font-size: 18px; color: green;'>Kleine Fortschritte summieren sich zu großem Können.</p>",
+                        "widget": "html"
+                    },
+                    {
+                        "html": "<br><br>",
+                        "widget": "html"
+                    },
+                    {
                         "title": "Lernfortschritt in den einzelnen Fachbereichen",
                         "database": "postgres",
                         "query": "getFachbereichProgress",
