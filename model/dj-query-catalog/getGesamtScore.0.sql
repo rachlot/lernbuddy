@@ -1,7 +1,7 @@
 SELECT
-  AVG("Ergebnis"."prozent") AS "Gesamtfortschritt in Prozent"
+  ROUND(AVG("Ergebnis"."prozent")) AS "Gesamtfortschritt (%)"
 FROM
   "Ergebnis"
-    INNER JOIN "Lernziel" ON "Ergebnis"."lernziel" = "Lernziel"."ID"
+  INNER JOIN "Lernziel" ON "Ergebnis"."lernziel" = "Lernziel"."ID"
 WHERE
   "Ergebnis"."email" = ${user}

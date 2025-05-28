@@ -16,8 +16,7 @@
                     "type": "object",
                     "properties": {
                         "frage": {
-                            "widget": "voice",
-                            "language": "de",
+                            "widget": "textarea",
                             "multiline": true,
                             "style": {
                                 "width": "400px"

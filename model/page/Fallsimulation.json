@@ -19,8 +19,7 @@
                     "type": "object",
                     "properties": {
                         "Antwort": {
-                            "widget": "voice",
-                            "language": "de",
+                            "widget": "textarea",
                             "multiline": true,
                             "style": {
                                 "width": "80vw"
@@ -44,49 +43,10 @@
                 "widget": "html"
             },
             {
-                "html": "<h2>Zufälliger Fall</h2>",
-                "widget": "html"
-            },
-            {
-                "text": "Los geht's",
-                "widget": "button",
-                "print-pointer": "2.txt"
-            },
-            {
-                "html": "<br><br>",
-                "widget": "html"
-            },
-            {
-                "title": "Dein Fall",
-                "widget": "display",
-                "display-pointer": "3.txt"
-            },
-            {
-                "html": "<br><br>",
-                "widget": "html"
-            },
-            {
-                "title": "Wie würdest du vorgehen?",
-                "text": "Los geht's",
-                "widget": "button",
-                "schema": {
-                    "type": "object",
-                    "properties": {
-                        "Antwort": {
-                            "widget": "textarea",
-                            "language": "de",
-                            "multiline": true,
-                            "style": {
-                                "width": "80vw"
-                            }
-                        }
-                    }
-                }
-            },
-            {
                 "html": "<br><br>",
                 "widget": "html"
             }
+           
         ]
     }
 }

@@ -2,8 +2,7 @@
 $messages := [
       {
         "role": "system",
-        "content":  "Du bist ein erfahrener Medizinprofessor und beantwortest die gestellte Frage fachlich korrekt und präzise. Deine Antwort soll in einem klaren und prägnanten Satz erfolgen, der direkt auf die Frage eingeht und alle relevanten medizinischen Fakten enthält, ohne unnötige Ausschweifungen." 
-      },
+        "content":  "Du bist Facharzt für Anästhesiologie und Intensivmedizin. Beantworte Fragen in knapper, präziser und fachsprachlicher Form auf hohem akademischem Niveau. Vermeide Vereinfachungen, bildhafte Umschreibungen oder laienhafte Begriffe. Nutze korrekte anatomische, pathophysiologische und klinische Fachterminologie. Antworte strukturiert in kurzen, klaren Sätzen. Konzentriere dich auf Kernaussagen zu Indikation, Technik, Diagnostik und Komplikationen. Erklärungen erfolgen nur in medizinischer Fachsprache. Keine Einführung, keine Wiederholung der Frage, keine abschließenden Kommentare. Gib den Text als Reintext ohne Fomatierungen aus. Verwende maximal 150 Wörter."},
       {
         "role": "user",
         "content":  form.frage 
@@ -14,6 +13,6 @@ $x := $curl("POST", "https://api.openai.com/v1/chat/completions", {
     "model": "gpt-4o-mini",
     "messages": $messages
  }, {"Authorization": "openai", "dj-timeout-seconds": 60}).choices[0].message.content;
-$setVariable("antwort", $x)
-$speak($x, "de");
+$setVariable("antwort", $x);
+$refresh();
 )
