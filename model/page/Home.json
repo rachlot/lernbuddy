@@ -4,27 +4,26 @@
         "widget": "page",
         "children": [
             {
-                "html": "<h1>Willkommen beim LernBuddy!</h1><h3>Unser System unterstützt dich gezielt bei der Vorbereitung auf deine Anästhesieklausur. Mit adaptiven Lernpfaden, realitätsnahen Fallsimulationen und stets aktuellen Fachinformationen bieten wir dir die ideale Vorbereitung – angepasst an deine Lernziele und dein Tempo. Entdecke eine neue Art des Lernens, selbstbestimmt und zielgerichtet, genau auf dich zugeschnitten!</h3>",
+                "html": "<h1>Willkommen beim LernBuddy!</h1><h3>Unser System unterstützt dich gezielt bei der Vorbereitung auf deine Klausur. Mit adaptiven Lernpfaden, realitätsnahen Fallsimulationen und stets aktuellen Fachinformationen bieten wir dir die ideale Vorbereitung – angepasst an deine Lernziele und dein Tempo. Entdecke eine neue Art des Lernens, selbstbestimmt und zielgerichtet, genau auf dich zugeschnitten!</h3>",
                 "widget": "html"
             },
             {
                 "title": "QuickAsk",
                 "text": "Frage die KI",
+                "print-pointer": "0.txt",
                 "widget": "button",
                 "schema": {
                     "type": "object",
                     "properties": {
                         "frage": {
-                            "widget": "voice",
-                            "language": "de",
+                            "widget": "textarea",
                             "multiline": true,
                             "style": {
                                 "width": "400px"
                             }
                         }
                     }
-                },
-                "print-pointer": "0.txt"
+                }
             },
             {
                 "html": "<br><br>",
@@ -32,8 +31,8 @@
             },
             {
                 "title": "",
-                "widget": "display",
-                "display-pointer": "1.txt"
+                "display-pointer": "1.txt",
+                "widget": "display"
             },
             {
                 "html": "<br><br>",
@@ -42,6 +41,7 @@
             {
                 "title": "QuizMode",
                 "text": "Quiz Mode",
+                "print-pointer": "2.txt",
                 "widget": "button",
                 "schema": {
                     "type": "object",
@@ -54,8 +54,7 @@
                             }
                         }
                     }
-                },
-                "print-pointer": "2.txt"
+                }
             }
         ]
     }

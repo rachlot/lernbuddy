@@ -1,0 +1,7 @@
+{
+    "ID": "mueller_e10@ukw.de",
+    "active": true,
+    "roles": [
+        "authenticated"
+    ]
+}
