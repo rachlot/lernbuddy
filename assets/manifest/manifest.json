@@ -1,0 +1,50 @@
+{
+    "name": "Lernbuddy",
+    "short_name": "Lernbuddy",
+    "start_url": "/",
+    "display": "standalone",
+    "display_override": [
+        "fullscreen",
+        "minimal-ui"
+    ],
+    "id": "dashjoin",
+    "background_color": "#fff",
+    "theme_color": "#1976d2",
+    "description": "Unser System unterstützt dich gezielt bei der Vorbereitung auf deine Klausur",
+    "dashjoin": {
+        "show_install_dialog": true
+    },
+    "icons": [
+        {
+            "src": "djlogo192.webp",
+            "type": "image/webp",
+            "sizes": "192x192",
+            "purpose": "any"
+        },
+        {
+            "src": "djlogo512.png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "purpose": "any"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "djscreenshot.avif",
+            "sizes": "1200x627",
+            "type": "image/avif"
+        },
+        {
+            "src": "djscreenshot.avif",
+            "sizes": "1200x627",
+            "type": "image/avif",
+            "form_factor": "wide"
+        },
+        {
+            "src": "djscreenshot.avif",
+            "sizes": "1200x627",
+            "type": "image/avif",
+            "form_factor": "narrow"
+        }
+    ]
+}
