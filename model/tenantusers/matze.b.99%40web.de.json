@@ -1,6 +1,7 @@
 {
-    "ID": "c.hoelzing@gmx.de",
     "active": true,
+    "ID": "matze.b.99@web.de",
+    "name": "Matthias Beck",
     "roles": [
         "authenticated"
     ]

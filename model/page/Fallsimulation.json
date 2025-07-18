@@ -14,6 +14,7 @@
             {
                 "title": "Was würdest du gerne üben? Gib ein Stichwort ein (z.B. präklinischer Notfall, geriatrischer Patient).",
                 "text": "Los geht's",
+                "print-pointer": "0.txt",
                 "widget": "button",
                 "schema": {
                     "type": "object",
@@ -26,8 +27,7 @@
                             }
                         }
                     }
-                },
-                "print-pointer": "0.txt"
+                }
             },
             {
                 "html": "<br><br>",
@@ -35,9 +35,9 @@
             },
             {
                 "title": "Dein Fall",
-                "widget": "display",
-                "display-pointer": "1.txt"
-            },    
+                "display-pointer": "1.txt",
+                "widget": "display"
+            },
             {
                 "html": "<br><hr><br>",
                 "widget": "html"
@@ -46,7 +46,6 @@
                 "html": "<br><br>",
                 "widget": "html"
             }
-           
         ]
     }
 }

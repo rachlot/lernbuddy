@@ -7,5 +7,10 @@
     "providers": "google",
     "backgroundImage": "https://studieren.de/profilestorage/_processed_/5/9/csm_bild_1__uni_wuerzburg_-min_56018b5aaf.jpg",
     "className": "dashjoin",
-    "openIdConfigs": []
+    "openIdConfigs": [],
+    "i18n": {
+        "en": {
+            "legal": "Die im Rahmen der Nutzung dieses Lernbuddys erhobenen Daten können zu Forschungszwecken ausgewertet und weiterverwendet werden. Die Datenverarbeitung erfolgt ausschließlich in pseudonymisierter oder anonymisierter Form und unter Beachtung geltender Datenschutzbestimmungen. Mit der Nutzung dieses Angebots erklärst du dich mit der wissenschaftlichen Verwendung deiner Eingaben einverstanden."
+        }
+    }
 }
