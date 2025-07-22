@@ -1,0 +1,135 @@
+{
+    "ID": "dj-toolbar",
+    "layout": {
+        "widget": "container",
+        "layout": "vertical",
+        "readOnly": true,
+        "children": [
+            {
+                "readOnly": true,
+                "widget": "activity-status"
+            },
+            {
+                //"widget": "toolbar",
+                "widget": "container",
+                "layout": "vertical",
+                "children": [
+                    {
+                        "readOnly": true,
+                        "widget": "sidenav-switch"
+                    },
+                    {
+                        "tooltip": "Home",
+                        "text": "Home",
+                        "icon": "home",
+                        "readOnly": true,
+                        "href": "/page/Home",
+                        "widget": "icon-text-link"
+                    },
+                    {
+                        "tooltip": "Mein Lernfortschritt bei den Fachbereichen",
+                        "icon": "account_balance",
+                        "text": "Lernfortschritt",
+                        "readOnly": true,
+                        "href": "/page/Dashboard",
+                        "widget": "icon-text-link"
+                    },
+                    {
+                        "widget": "icon-text-link",
+                        "icon": "accessible_forward",
+                        "readOnly": true,
+                        "tooltip": "Fallsimulation",
+                        "text": "Fallsimulation",
+                        "href": "/page/Fallsimulation"
+                    },
+                    {
+                        "tooltip": "Lernziele",
+                        "icon": "outlined_flag",
+                        "text": "Lernziele",
+                        "readOnly": true,
+                        "href": "/page/Tree",
+                        "widget": "icon-text-link"
+                    },
+                    {
+                        "fxHide": "lt-md",
+                        "tooltip": "Configure databases",
+                        "icon": "settings",
+                        "readOnly": true,
+                        "href": "/table/config/dj-database",
+                        "roles": [
+                            "admin"
+                        ],
+                        "widget": "icon-text-link"
+                    },
+                    {
+                        "fxHide": "lt-md",
+                        "tooltip": "Query Catalog",
+                        "icon": "query_builder",
+                        "readOnly": true,
+                        "href": "/table/config/dj-query-catalog",
+                        "roles": [
+                            "admin"
+                        ],
+                        "widget": "icon-text-link"
+                    },
+                    {
+                        "fxHide": "lt-md",
+                        "tooltip": "Dashboard Pages",
+                        "icon": "wysiwyg",
+                        "readOnly": true,
+                        "href": "/table/config/page",
+                        "roles": [
+                            "admin"
+                        ],
+                        "widget": "icon-text-link"
+                    },
+                    {
+                        "fxHide": "lt-md",
+                        "tooltip": "Functions",
+                        "icon": "build_circle",
+                        "readOnly": true,
+                        "href": "/table/config/dj-function",
+                        "roles": [
+                            "admin"
+                        ],
+                        "widget": "icon-text-link"
+                    },
+                    {
+                        "fxHide": "lt-md",
+                        "tooltip": "General Information",
+                        "icon": "info",
+                        "readOnly": true,
+                        "href": "/page/Info",
+                        "roles": [
+                            "admin"
+                        ],
+                        "widget": "icon-text-link"
+                    },
+                    {
+                        "readOnly": true,
+                        "widget": "spacer"
+                    },
+                    {
+                        "readOnly": true,
+                        "fxHide": "lt-sm",
+                        "roles": [
+                            "admin"
+                        ],
+                        "widget": "layout-edit-switch"
+                    },
+                    {
+                        "fxHide": "lt-sm",
+                        "tooltip": "Open help pages",
+                        "icon": "help_outline",
+                        "readOnly": true,
+                        "href": "https://dashjoin.github.io/platform/latest",
+                        "roles": [
+                            "admin"
+                        ],
+                        "widget": "icon-text-link"
+                    }
+                ]
+            }
+        ]
+    }
+}
