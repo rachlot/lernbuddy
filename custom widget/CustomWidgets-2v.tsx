@@ -2,6 +2,9 @@ import { config } from "./widgets/Smiles";
 import { Smiles } from "./widgets/Smiles";
 import { IconTextLink, config as iconTextLinkConfig } from "./widgets/IconTextLink";
 
+import { configQuizModusPage } from "./widgets/QuizModusPage";
+import { QuizModusPage } from "./widgets/QuizModusPage";
+
 /**
  * extension point for custom widgets
  * Please refer to the section "Developing a Custom Widget" in the documentation
@@ -19,5 +22,9 @@ export const customWidgets = [
     {
         widget: IconTextLink,
         config: iconTextLinkConfig
-    }
+    },
+    {
+         widget: QuizModusPage,
+         config: configQuizModusPage
+     }
 ]
