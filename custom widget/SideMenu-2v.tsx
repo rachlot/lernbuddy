@@ -1,11 +1,16 @@
 import { useContext } from "react"
 import { WidgetLoader } from "../widgets/WidgetLoader"
 import { EditContext } from "../App";
-import { Box, Divider } from "@mui/material";
 import { useState } from "react";
-import { IconButton } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-
+import { Legal } from "../components/Legal";
+import { profile } from "../api/Profile";
+import { AuthErrorProps, Button, Loading } from 'react-admin';
+import authProvider from '../login/AuthProvider'; // Pfad ggf. anpassen
+import LogoutIcon from '@mui/icons-material/Logout'; // oder anderes Icon
+import { IconButton, Tooltip } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
+import { Link, Box } from '@mui/material';
 
 /**
  * simply delegate to widget loader
@@ -28,8 +33,12 @@ export const SideMenu = () => {
     const content = (
         <>
             <WidgetLoader compid='dj-toolbar' />
-            <Divider sx={{ my: 2 }} />
-            <WidgetLoader compid='dj-sidenav' /> 
+        </>
+    );
+
+    const content2 = (
+        <>
+            <WidgetLoader compid='dj-toolbar-settings' />
         </>
     );
 
@@ -38,22 +47,49 @@ export const SideMenu = () => {
             sx={{
                 backgroundColor: 'secondary.main',
                 color: 'primary.main',
-                height: '100vh',
+                minHeight: '100vh',
                 width: isOpen ? 280 : 56, // collapsable
                 transition: 'width 0.3s',
                 overflowX: 'hidden',
                 boxSizing: 'border-box',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between'
             }}
         >
-            <IconButton
-                onClick={() => setIsOpen(!isOpen)}
-                sx={{ color: 'inherit', mb: 2, ml: 1}}
-            >
-                <MenuIcon />
-            </IconButton>
-            {edit
-                ? <Box sx={{ pointerEvents: 'none' }}>{content}</Box>
-                : content}
+            <Box>
+                <IconButton
+                    onClick={() => setIsOpen(!isOpen)}
+                    sx={{ color: 'inherit', mb: 3, ml: 1, mt: 2}}
+                >
+                    <MenuIcon />
+                </IconButton>
+                {edit
+                    ? <Box sx={{ pointerEvents: 'none'}}>{content}</Box>
+                    : content}
+            </Box>
+            <Box>
+                <Box
+                    sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        py: 2
+                    }}>
+                    <Legal />
+                        {profile.getUISettings().logoUrl ? <Box
+                            component="img"
+                            sx={{ height: isOpen ? 48 : 32, mt: 1, mb: 1, mx:'auto' }}
+                            src={profile.getUISettings().logoUrl}
+                    /> : <></>}
+                </Box>
+                <Box sx={{ textAlign: 'center', mt: 1, mb: 2 }}>
+                    {isOpen && (
+                        edit
+                            ? <Box sx={{ pointerEvents: 'none'}}>{content2}</Box>
+                            : content2
+                    )}
+                </Box>
+            </Box>
         </Box>
     );
 

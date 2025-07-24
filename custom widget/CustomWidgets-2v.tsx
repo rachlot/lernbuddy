@@ -1,6 +1,6 @@
-import { config } from "./widgets/Smiles";
-import { Smiles } from "./widgets/Smiles";
 import { IconTextLink, config as iconTextLinkConfig } from "./widgets/IconTextLink";
+import { LogoutButton, config as logoutButtonConfig } from "./widgets/LogoutButton";
+import { TextLink, config as textLinkConfig } from './widgets/TextLink';
 
 /**
  * extension point for custom widgets
@@ -13,11 +13,15 @@ import { IconTextLink, config as iconTextLinkConfig } from "./widgets/IconTextLi
  */
 export const customWidgets = [
     {
-        widget: Smiles,
-        config: config,
-    },
-    {
         widget: IconTextLink,
         config: iconTextLinkConfig
+    },
+    {
+        widget: LogoutButton,
+        config: logoutButtonConfig
+    },
+    {
+        widget: TextLink,
+        config: textLinkConfig,
     }
 ]

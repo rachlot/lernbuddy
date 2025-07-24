@@ -10,7 +10,6 @@
                 "widget": "activity-status"
             },
             {
-                //"widget": "toolbar",
                 "widget": "container",
                 "layout": "vertical",
                 "children": [
