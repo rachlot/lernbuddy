@@ -1,23 +1,50 @@
-import { Box, Button, MenuItem, Select, Typography } from "@mui/material"
-import SendIcon from "@mui/icons-material/Send"
+import { Box, Button, IconButton, MenuItem, Select, Typography } from "@mui/material"
+import FastForwardIcon from "@mui/icons-material/FastForward"
 import { Widget } from "../model/widget"
 import { text, title } from "../api/Const"
 import { useState } from "react"
-import { ChatField } from "./ChatField"
+import { ChatField } from "./HelperWidgets/ChatField"
+import { QuizTopicSelect } from "./HelperWidgets/QuizTopicSelect"
+import { ChatTextBlock } from "./HelperWidgets/ChatTextBlock"
 
 export const QuizModusPage = ({ widget }: { widget: Widget }) => {
-    const [value, setValue] = useState("")
 
-    const handleSend = () => {
-        console.log("Send:", value)
-        setValue("") // optional: clear input after sending
-    }
-
-    const [topic, setTopic] = useState("Kinderanästhesie")
     const [isPageOne, setIsPageOne] = useState(true)
+    const [messages, setMessages] = useState<
+        { text: string; align: "left" | "right"; withStripe: boolean }[]
+    >([])
 
     const handleStart = () => {
-      setIsPageOne(!isPageOne)
+        setIsPageOne(!isPageOne)
+    }
+
+    const handleChatSend = (chatMessage: string) => {
+        console.log(chatMessage)
+        if (!chatMessage.trim()) return
+        addTextBlock(chatMessage, "right", false)
+        setTimeout(() => {
+            addTextBlock("Automatische Antwort", "left", true)
+        }, 5000)
+    }
+
+
+    const handleTopicSelected = (value: string) => {
+        console.log(value)
+    }
+
+    const addTextBlock = (
+        text: string,
+        align: "left" | "right",
+        withStripe: boolean
+    ) => {
+        setMessages((prev) => [
+            ...prev,
+            {
+                text: text,
+                align: align, // or "right"
+                withStripe: withStripe, // or false
+            },
+        ])
     }
 
     return (
@@ -30,11 +57,15 @@ export const QuizModusPage = ({ widget }: { widget: Widget }) => {
                 width: "100%",
                 height: "85vh", // Volle Seitenhöhe
                 paddingBottom: "40px",
-                boxSizing: "border-box", 
+                paddingTop: "20px",
+                boxSizing: "border-box",
             }}
         >
+
+
+            {/*   ------------- Page 1 ------------------------------------------------    */}
             <Box
-                style={{display: isPageOne ? "flex" : "none"}}
+                style={{ display: isPageOne ? "flex" : "none" }}
                 sx={{
                     width: "70%",
                     maxWidth: 500,
@@ -44,20 +75,11 @@ export const QuizModusPage = ({ widget }: { widget: Widget }) => {
                     gap: 3,
                 }}
             >
-                <Typography variant="h6" sx={{ fontSize: 20 }}>
+                <Typography variant="h6" >
                     Welcher Lerninhalt soll abgefragt werden?
                 </Typography>
 
-                <Select
-                    value={topic}
-                    onChange={(e) => setTopic(e.target.value)}
-                    fullWidth
-                    variant="outlined"
-                >
-                    <MenuItem value="Kinderanästhesie">Kinderanästhesie</MenuItem>
-                    <MenuItem value="Allgemeinanästhesie">Allgemeinanästhesie</MenuItem>
-                    <MenuItem value="Notfallmedizin">Notfallmedizin</MenuItem>
-                </Select>
+                <QuizTopicSelect widget={widget} onChange={handleTopicSelected}></QuizTopicSelect>
 
                 <Button
                     variant="contained"
@@ -75,25 +97,66 @@ export const QuizModusPage = ({ widget }: { widget: Widget }) => {
                     Los gehts
                 </Button>
             </Box>
-            <Box style={{display: isPageOne ? "none" : "flex", width: "100%"}}>
-                <ChatField widget={widget}></ChatField>
+
+            {/*   ------------- Page 2 -------------------------------------    */}
+            <Box
+                style={{ display: isPageOne ? "none" : "flex" }}
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    alignItems: 'flex-start',
+                    width: "70%",
+                    height: "95vh", // Volle Seitenhöhe
+                    boxSizing: "border-box", // padding zählt zur Höhe
+                }}>
+                <QuizTopicSelect widget={widget} onChange={handleTopicSelected}></QuizTopicSelect>
+                <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+                    {messages.map((msg, index) => (
+                        <ChatTextBlock
+                            key={index}
+                            text={msg.text}
+                            align={msg.align}
+                            withStripe={msg.withStripe}
+                        />
+                    ))}
+                </Box>
+
+                {/*  --- ChatField and Interaction Menu ---    */}
+                <Box sx={{ display: "flex", gap: 2, flexDirection: "column", width: "100%" }}>
+                    <Box sx={{ display: "flex", flexDirection: "row-reverse", gap: 2 }}>
+                        <Button
+                            variant="contained"
+                            sx={{
+                                backgroundColor: "#0000ff",
+                                color: "white",
+                                borderRadius: "12px",
+                                textTransform: "none",
+                                px: 3,
+                                "&:hover": {
+                                    backgroundColor: "#0033cc",
+                                },
+                            }}
+                        >
+                            Nächste Frage
+                        </Button>
+                        <IconButton
+                            sx={{
+                                border: "1px solid #0000ff",
+                                borderRadius: "12px",
+                                color: "#0000ff",
+                            }}
+                        >
+                            <FastForwardIcon />
+                        </IconButton>
+                    </Box>
+                    <ChatField widget={widget} onData={handleChatSend}></ChatField>
+                </Box>
             </Box>
         </Box>
     )
 }
 
 export const configQuizModusPage = {
-    id: 'QuizModusPage',
-    title: 'chatter2000',
-    description: 'Renders a SMILES string as a 3D molecule',
-    version: 1,
-    controls: {
-        type: 'autoform',
-        schema: {
-            properties: {
-                title: title,
-                text: text
-            }
-        }
-    }
+    id: 'QuizModusPage'
 }
