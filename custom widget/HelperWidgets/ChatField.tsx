@@ -1,31 +1,19 @@
 import { IconButton, InputBase, Paper, Box } from "@mui/material"
 import SendIcon from "@mui/icons-material/Send"
-import { Widget } from "../model/widget"
-import { text, title } from "../api/Const"
+import { Widget } from "../../model/widget"
+import { text, title } from "../../api/Const"
 import { useState } from "react"
 
-export const ChatField = ({ widget }: { widget: Widget }) => {
+export const ChatField = ({ widget, onData }: { widget: Widget; onData: (data: string) => void }) => {
     const [value, setValue] = useState("")
 
     const handleSend = () => {
-        console.log("Send:", value)
-        setValue("") // optional: clear input after sending
-    }
+        onData(value)
+        setValue("") // to clear input
+      }
 
             return (
-                <Box
-                    sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'flex-end',
-                        alignItems: 'center',
-                        width: "100%",
-                        height: "95vh", // Volle Seitenhöhe
-                        paddingBottom: "40px", // Abstand zum unteren Rand
-                        boxSizing: "border-box", // padding zählt zur Höhe
-                    }}
-                >
-                    <Box sx={{ width: "70%", height: "8%", minHeight:"100px" }}>
+                    <Box sx={{ width:"100%", height: "8%", minHeight:"100px" }}>
                         <Paper
                             component="form"
                             onSubmit={(e) => {
@@ -76,7 +64,6 @@ export const ChatField = ({ widget }: { widget: Widget }) => {
                                 </Box>
                         </Paper>
                     </Box>
-                </Box>
     )
 }
 
