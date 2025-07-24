@@ -2,6 +2,9 @@ import { IconTextLink, config as iconTextLinkConfig } from "./widgets/IconTextLi
 import { LogoutButton, config as logoutButtonConfig } from "./widgets/LogoutButton";
 import { TextLink, config as textLinkConfig } from './widgets/TextLink';
 
+import { configQuizModusPage } from "./widgets/QuizModusPage";
+import { QuizModusPage } from "./widgets/QuizModusPage";
+
 /**
  * extension point for custom widgets
  * Please refer to the section "Developing a Custom Widget" in the documentation
@@ -23,5 +26,9 @@ export const customWidgets = [
     {
         widget: TextLink,
         config: textLinkConfig,
+    },
+    {
+        widget: QuizModusPage,
+        config: configQuizModusPage
     }
 ]
