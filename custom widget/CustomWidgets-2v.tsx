@@ -1,6 +1,6 @@
-import { config } from "./widgets/Smiles";
-import { Smiles } from "./widgets/Smiles";
 import { IconTextLink, config as iconTextLinkConfig } from "./widgets/IconTextLink";
+import { LogoutButton, config as logoutButtonConfig } from "./widgets/LogoutButton";
+import { TextLink, config as textLinkConfig } from './widgets/TextLink';
 
 import { configQuizModusPage } from "./widgets/QuizModusPage";
 import { QuizModusPage } from "./widgets/QuizModusPage";
@@ -16,15 +16,19 @@ import { QuizModusPage } from "./widgets/QuizModusPage";
  */
 export const customWidgets = [
     {
-        widget: Smiles,
-        config: config,
-    },
-    {
         widget: IconTextLink,
         config: iconTextLinkConfig
     },
     {
-         widget: QuizModusPage,
-         config: configQuizModusPage
-     }
+        widget: LogoutButton,
+        config: logoutButtonConfig
+    },
+    {
+        widget: TextLink,
+        config: textLinkConfig,
+    },
+    {
+        widget: QuizModusPage,
+        config: configQuizModusPage
+    }
 ]

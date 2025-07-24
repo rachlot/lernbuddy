@@ -4,6 +4,7 @@ import { SideMenu } from './page/SideMenu';
 import { Toolbar } from './page/Toolbar';
 import { useEffect } from 'react';
 import { profile } from './api/Profile';
+import { useState } from "react";
 
 /**
  * layout with custom toolbar and side menu
@@ -31,6 +32,7 @@ const MyLayout = ({ children }: LayoutProps) => {
     const [, setOpen] = useSidebarState()
     //useEffect(() => setOpen(profile.getUISettings().sideNavOpen), [setOpen])
     useEffect(() => {setOpen(true);}, [setOpen])
+    const [isOpen, setIsOpen] = useState(true);
 
     return (
       <Box sx={{ display: 'flex', height: '100vh'}}>
@@ -41,7 +43,7 @@ const MyLayout = ({ children }: LayoutProps) => {
         </Box>
   
         {/* Inhalt – du bestimmst selbst, wo das gerendert wird */}
-        <Box sx={{ flexGrow: 1, padding: 3 }}>
+        <Box sx={{ flexGrow: 1, padding: 3, overflow: 'scroll'}}>
           {children}
         </Box>
       </Box>

@@ -1,0 +1,32 @@
+{
+    "ID": "Einstellungen",
+    "layout": {
+        "widget": "page",
+        "children": [
+            {
+                "html": "<h3>Level</h3>",
+                "widget": "html"
+            },
+            {
+                "html": "<h3>Daily Goal</h3>",
+                "widget": "html"
+            },
+            {
+                "html": "<h3>Version</h3>",
+                "widget": "html"
+            },
+            {
+                "html": "<h3>Datenschutz</h3>",
+                "widget": "html"
+            },
+            {
+                "html": "<h3>Logout</h3>",
+                "widget": "html"
+            },
+            {
+                "text": "Logout",
+                "widget": "logout-button"
+            }
+        ]
+    }
+}
