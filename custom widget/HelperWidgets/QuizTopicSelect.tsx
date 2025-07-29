@@ -35,6 +35,7 @@ export const QuizTopicSelect = ({ widget, onChange }: { widget: Widget; onChange
             }}
             fullWidth
             variant="outlined"
+            sx={{backgroundColor: 'white', borderRadius: "12px"}}
         >
             {lerninhalte.map((item) => (
                 <MenuItem key={item} value={item}>

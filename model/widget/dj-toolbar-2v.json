@@ -1,5 +1,5 @@
 {
-    "ID": "dj-toolbar",
+    "ID": "dj-toolbar2",
     "layout": {
         "widget": "container",
         "layout": "vertical",
@@ -26,14 +26,6 @@
                         "widget": "icon-text-link"
                     },
                     {
-                        "tooltip": "Mein Lernfortschritt bei den Fachbereichen",
-                        "icon": "account_balance",
-                        "text": "Lernfortschritt",
-                        "readOnly": true,
-                        "href": "/page/Dashboard",
-                        "widget": "icon-text-link"
-                    },
-                    {
                         "widget": "icon-text-link",
                         "icon": "accessible_forward",
                         "readOnly": true,
@@ -42,11 +34,11 @@
                         "href": "/page/Fallsimulation"
                     },
                     {
-                        "tooltip": "Lernziele",
-                        "icon": "outlined_flag",
-                        "text": "Lernziele",
+                        "tooltip": "Mein Lernfortschritt bei den Fachbereichen",
+                        "icon": "account_balance",
+                        "text": "Fortschritt",
                         "readOnly": true,
-                        "href": "/page/Tree",
+                        "href": "/page/Dashboard",
                         "widget": "icon-text-link"
                     },
                     {
