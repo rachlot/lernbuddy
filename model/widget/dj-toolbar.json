@@ -45,6 +45,14 @@
                         "widget": "icon"
                     },
                     {
+                        "tooltip": "Einstellungen & Datenschutz",
+                        "text": "Einstellungen & Datenschutz",
+                        "readOnly": true,
+                        "href": "/page/Settings",
+                        "icon": "settings",
+                        "widget": "icon"
+                    },
+                    {
                         "fxHide": "lt-md",
                         "tooltip": "Configure databases",
                         "icon": "settings",

@@ -1,11 +1,13 @@
-import { IconTextLink, config as iconTextLinkConfig } from "./widgets/IconTextLink";
-import { LogoutButton, config as logoutButtonConfig } from "./widgets/LogoutButton";
-import { TextLink, config as textLinkConfig } from './widgets/TextLink';
+import { IconTextLink, config as iconTextLinkConfig } from "./widgets/HelperWidgets/IconTextLink";
+import { LogoutButton, config as logoutButtonConfig } from "./widgets/HelperWidgets/ContainedButton";
+import { TextLink, config as textLinkConfig } from './widgets/HelperWidgets/TextLink';
 
 import { configQuizModusPage } from "./widgets/QuizModusPage";
 import { QuizModusPage } from "./widgets/QuizModusPage";
 import { AskLernbuddyStyle, config as AskLernbuddyStyleConfig } from "./widgets/AskLernbuddyStyle";
 
+import { configSettingsPage } from "./widgets/SettingsPage";
+import { SettingsPage } from "./widgets/SettingsPage";
 
 /**
  * extension point for custom widgets
@@ -22,10 +24,6 @@ export const customWidgets = [
         config: iconTextLinkConfig
     },
     {
-        widget: LogoutButton,
-        config: logoutButtonConfig
-    },
-    {
         widget: TextLink,
         config: textLinkConfig,
     },
@@ -36,5 +34,10 @@ export const customWidgets = [
     {
         widget: AskLernbuddyStyle,
         config: AskLernbuddyStyleConfig
+    },
+    {
+        widget: SettingsPage,
+        config: configSettingsPage
     }
+    
 ]

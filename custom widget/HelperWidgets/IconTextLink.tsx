@@ -1,11 +1,11 @@
 import { Box, Icon as MuiIcon, ListItemButton, ListItemIcon, ListItemText, Tooltip } from "@mui/material";
-import { Widget } from "../model/widget";
-import { icon, href, text, tooltip, roles } from "../api/Const";
-import { useExpressionContext } from "../hooks/useExpressionContext";
-import { util } from "../api/Util";
-import { useLoc } from "../hooks/useLoc";
+import { Widget } from "../../model/widget";
+import { icon, href, text, tooltip, roles } from "../../api/Const";
+import { useExpressionContext } from "../../hooks/useExpressionContext";
+import { util } from "../../api/Util";
+import { useLoc } from "../../hooks/useLoc";
 import { Link } from "react-router-dom";
-import { useDjTranslate } from "../hooks/useDjTranslate";
+import { useDjTranslate } from "../../hooks/useDjTranslate";
 import { useSidebarState } from 'react-admin';
 import { useLocation } from "react-router-dom";
 

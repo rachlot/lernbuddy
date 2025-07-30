@@ -1,7 +1,7 @@
 {
     "ID": "theme",
     "map": {
-        "palette.primary.main": "#3d7dbc",
-        "palette.secondary.main": "#3d7dbc"
+        "palette.primary.main": "#0021FF",
+        "palette.secondary.main": "#DEF7FF"
     }
 }

@@ -1,9 +1,9 @@
 import { Link as MuiLink } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 import { useSidebarState } from 'react-admin';
-import { Widget } from '../model/widget';
-import { text, href, tooltip, roles } from '../api/Const';
-import { useDjTranslate } from '../hooks/useDjTranslate';
+import { Widget } from '../../model/widget';
+import { text, href, tooltip, roles } from '../../api/Const';
+import { useDjTranslate } from '../../hooks/useDjTranslate';
 
 /**
  * Simple text link shown only when sidebar is open
