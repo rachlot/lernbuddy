@@ -1,0 +1,73 @@
+{
+    "ID": "AskLernbuddy",
+    "layout": {
+        "widget": "page",
+        "children": [
+            {
+                "html": "<br><br>",
+                "widget": "html"
+            },
+            {
+                "title": "",
+                "widget": "display",
+                "display-pointer": "2.txt",
+                "style":{
+                    "align-self": "end",
+                    "padding-right": "15vw"
+                }
+            },
+            {
+                "html": "<br><br>",
+                "widget": "html"
+            },
+            {
+                "title": "",
+                "display-pointer": "1.txt",
+                "widget": "display",
+                "style":{
+                    "width": "70vw",
+                    "align-self": "center"
+                }
+            },
+            {
+                "html": "<br><br>",
+                "widget": "html"
+            },
+            {
+                "text": " ",
+                "print-pointer": "0.txt",
+                "icon":"send",
+                "widget": "button",
+                "style": {
+                    "width":"70vw",
+                    "align-self":"center"
+                },
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "frage": {
+                            "widget": "textarea",
+                            "multiline": true,
+                            "style": {
+                                "width": "65vw"
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "widget": "button",
+                "text":"Erkläre genauer",
+                "print-pointer": "3.txt",
+                "style":{
+                    "width": "70vw",
+                    "align-self": "center",
+                    "padding-top": "10px"
+                }
+            },
+            {
+                "widget":"AskLernbuddy-style"
+            }
+        ]
+    }
+}

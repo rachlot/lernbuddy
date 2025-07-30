@@ -4,6 +4,8 @@ import { TextLink, config as textLinkConfig } from './widgets/TextLink';
 
 import { configQuizModusPage } from "./widgets/QuizModusPage";
 import { QuizModusPage } from "./widgets/QuizModusPage";
+import { AskLernbuddyStyle, config as AskLernbuddyStyleConfig } from "./widgets/AskLernbuddyStyle";
+
 
 /**
  * extension point for custom widgets
@@ -30,5 +32,9 @@ export const customWidgets = [
     {
         widget: QuizModusPage,
         config: configQuizModusPage
+    },
+    {
+        widget: AskLernbuddyStyle,
+        config: AskLernbuddyStyleConfig
     }
 ]
