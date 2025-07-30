@@ -28,10 +28,6 @@ export const customWidgets = [
         config: textLinkConfig,
     },
     {
-        widget: QuizModusPage,
-        config: configQuizModusPage
-    },
-    {
         widget: AskLernbuddyStyle,
         config: AskLernbuddyStyleConfig
     },
