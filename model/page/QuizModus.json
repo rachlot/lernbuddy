@@ -1,0 +1,26 @@
+{
+    "ID": "QuizModus",
+    "layout": {
+        "widget": "page",
+        "children": [
+            {
+                "title": "QuizMode",
+                "text": "Quiz Mode",
+                "print-pointer": "2.txt",
+                "widget": "button",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "Fachbereich": {
+                            "widget": "select",
+                            "options": "$all(\"postgres\", \"Fachbereich\").ID",
+                            "style": {
+                                "width": "400px"
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}
