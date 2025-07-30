@@ -45,8 +45,8 @@
                         "widget": "icon"
                     },
                     {
-                        "tooltip": "Einstellungen & Datenschutz",
-                        "text": "Einstellungen & Datenschutz",
+                        "tooltip": "Quizmodus",
+                        "text": "Quizmodus",
                         "readOnly": true,
                         "href": "/page/QuizModus",
                         "icon": "settings",
