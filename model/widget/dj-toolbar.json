@@ -46,10 +46,10 @@
                     },
                     {
                         "tooltip": "Einstellungen & Datenschutz",
-                        "text": "Einstellungen & Datenschutz",
+                        "icon": "settings",
                         "readOnly": true,
                         "href": "/page/Settings",
-                        "icon": "settings"
+                        "widget":"icon"
                     },
                     {
                         "tooltip": "Quizmodus",
