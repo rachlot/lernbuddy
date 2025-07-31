@@ -27,15 +27,37 @@
                     },
                     {
                         "widget": "icon-text-link",
-                        "icon": "accessible_forward",
+                        "icon": "accessibility",
                         "readOnly": true,
                         "tooltip": "Fallsimulation",
                         "text": "Fallsimulation",
                         "href": "/page/Fallsimulation"
                     },
                     {
+                        "widget": "icon-text-link",
+                        "icon": "quiz",
+                        "readOnly": true,
+                        "tooltip": "Quizmodus",
+                        "text": "Quizmodus",
+                        "roles": [
+                            "admin"
+                        ],
+                        "href": "/"
+                    },
+                    {
+                        "widget": "icon-text-link",
+                        "icon": "smart_toy",
+                        "readOnly": true,
+                        "tooltip": "AskLernbuddy",
+                        "text": "AskLernbuddy",
+                        "roles": [
+                            "admin"
+                        ],
+                        "href": "/"
+                    },
+                    {
                         "tooltip": "Mein Lernfortschritt bei den Fachbereichen",
-                        "icon": "account_balance",
+                        "icon": "insights",
                         "text": "Fortschritt",
                         "readOnly": true,
                         "href": "/page/Dashboard",
