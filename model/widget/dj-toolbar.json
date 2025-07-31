@@ -49,7 +49,17 @@
                         "text": "Einstellungen & Datenschutz",
                         "readOnly": true,
                         "href": "/page/Settings",
+                        "icon": "settings"
+                    },
+                    {
+                        "tooltip": "Quizmodus",
+                        "text": "Quizmodus",
+                        "readOnly": true,
+                        "href": "/page/QuizModus",
                         "icon": "settings",
+                        "roles": [
+                            "admin"
+                        ],
                         "widget": "icon"
                     },
                     {
