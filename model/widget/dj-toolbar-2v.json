@@ -22,7 +22,7 @@
                         "text": "Home",
                         "icon": "home",
                         "readOnly": true,
-                        "href": "/page/Home",
+                        "href": "/page/Home2V",
                         "widget": "icon-text-link"
                     },
                     {
@@ -31,7 +31,7 @@
                         "readOnly": true,
                         "tooltip": "Fallsimulation",
                         "text": "Fallsimulation",
-                        "href": "/page/Fallsimulation"
+                        "href": "/page/Fallsimulation2V"
                     },
                     {
                         "widget": "icon-text-link",
@@ -39,10 +39,7 @@
                         "readOnly": true,
                         "tooltip": "Quizmodus",
                         "text": "Quizmodus",
-                        "roles": [
-                            "admin"
-                        ],
-                        "href": "/"
+                        "href": "/page/QuizModus"
                     },
                     {
                         "widget": "icon-text-link",
@@ -50,10 +47,7 @@
                         "readOnly": true,
                         "tooltip": "AskLernbuddy",
                         "text": "AskLernbuddy",
-                        "roles": [
-                            "admin"
-                        ],
-                        "href": "/"
+                        "href": "/page/AskLernbuddy"
                     },
                     {
                         "tooltip": "Mein Lernfortschritt bei den Fachbereichen",

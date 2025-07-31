@@ -2,8 +2,6 @@ import { IconTextLink, config as iconTextLinkConfig } from "./widgets/HelperWidg
 import { LogoutButton, config as logoutButtonConfig } from "./widgets/HelperWidgets/ContainedButton";
 import { TextLink, config as textLinkConfig } from './widgets/HelperWidgets/TextLink';
 
-import { configQuizModusPage } from "./widgets/QuizModusPage";
-import { QuizModusPage } from "./widgets/QuizModusPage";
 import { AskLernbuddyStyle, config as AskLernbuddyStyleConfig } from "./widgets/AskLernbuddyStyle";
 
 import { configSettingsPage } from "./widgets/SettingsPage";

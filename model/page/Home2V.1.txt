@@ -1,0 +1,3 @@
+(
+    $navigate("/page/Fallsimulation2V")
+)

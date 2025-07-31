@@ -4,8 +4,12 @@
         "widget": "page",
         "children": [
             {
-                "html": "<br><br>",
-                "widget": "html"
+                "html": "<h2>Ask Lernbuddy</h2>",
+                "widget": "html",
+                "style":{
+                    "width": "70vw",
+                    "align-self": "center"
+                }
             },
             {
                 "title": "",

@@ -32,6 +32,14 @@
                 "widget": "html"
             },
             {
+                "html": "<h5>Wähle deinen Fall</h5>",
+                "widget": "html",
+                "style":{
+                    "width":"70vw",
+                    "align-self":"center"
+                }
+            },
+            {
                 "text": "Generiere den Fall",
                 "print-pointer": "0.txt",
                 "widget": "button",
@@ -53,11 +61,11 @@
                 }
             },
             {
-                "html": "<br><br>",
+                "html": "<br><br><br>",
                 "widget": "html"
             },
             {
-                "title": "Dein Fall",
+                "title": "Hier kommt gleich ein Fall:",
                 "display-pointer": "1.txt",
                 "widget": "display",
                 "style":{
@@ -66,8 +74,16 @@
                 }
             },
             {
-                "html": "<br><br>",
+                "html": "<br><br><br>",
                 "widget": "html"
+            },
+            {
+                "html": "<h5>Schreibe deine Antwort</h5>",
+                "widget": "html",
+                "style":{
+                    "width":"70vw",
+                    "align-self":"center"
+                }
             },
             {
                 "text": " ",
