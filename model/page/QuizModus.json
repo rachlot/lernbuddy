@@ -4,9 +4,9 @@
         "widget": "page",
         "children": [
             {
-                "title": "QuizMode",
-                "text": "Quiz Mode",
-                "print-pointer": "2.txt",
+                "title": "QuizModus",
+                "text": "Los gehts",
+                "print-pointer": "0.txt",
                 "widget": "button",
                 "schema": {
                     "type": "object",
@@ -15,8 +15,8 @@
                             "widget": "select",
                             "options": "$all(\"postgres\", \"Fachbereich\").ID",
                             "style": {
-                                "width": "400px"
-                            }
+                                "width": "700px"
+                            } 
                         }
                     }
                 }
