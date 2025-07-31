@@ -37,7 +37,7 @@ export function IconTextLink({ widget }: { widget: Widget }) {
         >
             {widget.icon &&
                 <ListItemIcon sx={{ minWidth: 0, marginRight: 4, justifyContent: "center", color: "inherit"}}>
-                    <MuiIcon>{util.simpleTemplate(widget.icon, context)}</MuiIcon>
+                    <MuiIcon className="material-icons-outlined">{util.simpleTemplate(widget.icon, context)}</MuiIcon>
                 </ListItemIcon>
             }
             {isOpen && <ListItemText primary={translate(widget.text)} />}

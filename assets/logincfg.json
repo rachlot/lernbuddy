@@ -9,8 +9,8 @@
     "className": "dashjoin",
     "openIdConfigs": [],
     "i18n": {
-        "en": {
-            "legal": "Die im Rahmen der Nutzung dieses Lernbuddys erhobenen Daten können zu Forschungszwecken ausgewertet und weiterverwendet werden. Die Datenverarbeitung erfolgt ausschließlich in pseudonymisierter oder anonymisierter Form und unter Beachtung geltender Datenschutzbestimmungen. Mit der Nutzung dieses Angebots erklärst du dich mit der wissenschaftlichen Verwendung deiner Eingaben einverstanden."
+        "de": {
+            "legal": "Der Lernbuddy ist Teil eines Forschungsprojekts der Anästhesie am Universitätsklinikum Würzburg. Um den Lernbuddy weiterentwickeln zu können, benötigen wir deine Daten zur wissenschaftlichen Auswertung. Mit deiner Zustimmung erklärst du dich damit einverstanden, dass deine Daten ausschließlich anonymisiert verarbeitet werden – selbstverständlich unter strikter Beachtung der geltenden Datenschutzvorgaben. <br><br> Möchtest du der Verwendung deiner Daten für Forschungszwecke zustimmen?"
         }
-    }
+    } 
 }

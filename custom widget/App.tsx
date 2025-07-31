@@ -24,6 +24,7 @@ import loginConfig from "./login/LoginConfig";
 import en from 'ra-language-english';
 import fr from 'ra-language-french';
 import { formalGermanMessages as de } from '@haleos/ra-language-german'
+import DatenschutzPage from "./login/DatenschutzPage";
 
 
 // @ts-ignore
@@ -140,6 +141,7 @@ const App = () => {
           </CustomRoutes>
           <CustomRoutes noLayout>
             <Route path="full/*" element={<Auth><Page /></Auth>}></Route>
+            <Route path="/datenschutz" element={<DatenschutzPage />} />
           </CustomRoutes>
         </>
       }}
@@ -191,6 +193,7 @@ const App = () => {
             </CustomRoutes>
             <CustomRoutes noLayout>
               <Route path="full/*" element={<Auth><Page /></Auth>}></Route>
+              <Route path="/datenschutz" element={<DatenschutzPage />} />
             </CustomRoutes>
           </>
         }}
