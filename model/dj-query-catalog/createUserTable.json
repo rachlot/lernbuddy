@@ -1,0 +1,6 @@
+{
+    "ID": "createUserTable",
+    "type": "write",
+    "database": "dj/postgres",
+    "query-pointer": "query.sql"
+}

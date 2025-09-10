@@ -1,0 +1,16 @@
+{
+    "ID": "dj/config",
+    "tables": {
+        "user": {
+            "readRoles": [
+                "authenticated"
+            ],
+            "writeRoles": [
+                "authenticated"
+            ],
+            "tenantColumn": "ID",
+            "before-update": "'admin' in $djRoles() ? false :\n{\n  'setObject': object ~> | $ | {'lastlogin': $now()}, ['firstlogin', 'name'] |\n}",
+            "before-delete": "'admin' in $djRoles() ? false : $error('User record cannot be deleted')"
+        }
+    }
+}

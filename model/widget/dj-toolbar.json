@@ -24,7 +24,7 @@
                         "widget": "icon"
                     },
                     {
-                        "tooltip": "Mein Lernfortschritt bei den Fachbereichen",
+                        "tooltip": "Mein Lernfortschritt",
                         "icon": "account_balance",
                         "readOnly": true,
                         "href": "/page/Dashboard",
