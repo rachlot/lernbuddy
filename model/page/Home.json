@@ -1,28 +1,47 @@
 {
-    "ID": "Home",
+    "ID": "Home2V",
     "layout": {
         "widget": "page",
         "children": [
             {
-                "html": "<h1>Willkommen beim LernBuddy!</h1><h3>Unser System unterstützt dich gezielt bei der Vorbereitung auf deine Klausur. Mit adaptiven Lernpfaden, realitätsnahen Fallsimulationen und stets aktuellen Fachinformationen bieten wir dir die ideale Vorbereitung – angepasst an deine Lernziele und dein Tempo. Entdecke eine neue Art des Lernens, selbstbestimmt und zielgerichtet, genau auf dich zugeschnitten!</h3>",
+                "html": "<h1>Willkommen beim LernBuddy!</h1>",
+                "widget": "html",
+                "style":{
+                    "width": "70vw",
+                    "align-self": "center"
+                }
+            },
+            {
+                "html": "<br>",
                 "widget": "html"
             },
             {
-                "title": "AskLernbuddy",
-                "text": "Frage die KI",
+                "html": "<h4>Starte den Quizmodus</h4>",
+                "widget": "html",
+                "style":{
+                    "width": "70vw",
+                    "align-self": "center"
+                }
+            },
+            {
+                "html": "Beim Quizmodus kannst du dich vom Lernbuddy testen lassen. Die Fragen basieren auf unserem eigenen Fragenkatalog und sind vom ukw geprüft.",
+                "widget": "html",
+                "style":{
+                    "width": "70vw",
+                    "align-self": "center"
+                }
+            },
+            {
+                "html": "<br>",
+                "widget": "html"
+            },
+            {
+                "text": "jetzt starten",
                 "print-pointer": "0.txt",
                 "widget": "button",
-                "schema": {
-                    "type": "object",
-                    "properties": {
-                        "frage": {
-                            "widget": "textarea",
-                            "multiline": true,
-                            "style": {
-                                "width": "400px"
-                            }
-                        }
-                    }
+                "style":{
+                    "width": "70vw",
+                    "align-self": "center"
                 }
             },
             {
@@ -30,31 +49,41 @@
                 "widget": "html"
             },
             {
-                "title": "",
-                "display-pointer": "1.txt",
-                "widget": "display"
-            },
-            {
                 "html": "<br><br>",
                 "widget": "html"
             },
             {
-                "title": "QuizMode",
-                "text": "Quiz Mode",
-                "print-pointer": "2.txt",
+                "html": "<h4>Starte die Fallsimulation</h4>",
+                "widget": "html",
+                "style":{
+                    "width": "70vw",
+                    "align-self": "center"
+                }
+            },
+            {
+                "html": "Die Fallsimulation simuliert möglichst realistische Fälle. Überlege dir einfach was dein Fall behandeln soll und es geht los. Falls dir die Fälle zu einfach vorkommen, keine Sorge sie werden automatisch schwerer.",
+                "widget": "html",
+                "style":{
+                    "width": "70vw",
+                    "align-self": "center"
+                }
+            },
+            {
+                "html": "<br>",
+                "widget": "html"
+            },
+            {
+                "text": "jetzt starten",
+                "print-pointer": "1.txt",
                 "widget": "button",
-                "schema": {
-                    "type": "object",
-                    "properties": {
-                        "Fachbereich": {
-                            "widget": "select",
-                            "options": "$all(\"postgres\", \"Fachbereich\").ID",
-                            "style": {
-                                "width": "400px"
-                            }
-                        }
-                    }
+                "style":{
+                    "width": "70vw",
+                    "align-self": "center"
                 }
+            },
+            {
+                "html": "<br><br>",
+                "widget": "html"
             }
         ]
     }

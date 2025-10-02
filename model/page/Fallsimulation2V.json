@@ -1,0 +1,116 @@
+{
+    "ID": "Fallsimulation2V",
+    "layout": {
+        "widget": "page",
+        "children": [
+            {
+                "html": "<h1>Fallsimulation</h1>",
+                "widget": "html",
+                "style":{
+                    "width":"70vw",
+                    "align-self":"center"
+                }
+            },
+            {
+                "html": "<h3>Was würdest du gerne üben? Gib ein Stichwort ein.</h3>",
+                "widget": "html",
+                "style":{
+                    "width":"70vw",
+                    "align-self":"center"
+                }
+            },
+            {
+                "html": "<h5>Mögliche Fallbeispiele:</h5> <table><tr><td>- Präklinischer Patient</td><td>&nbsp;&nbsp;&nbsp;- Geriatrischer Patient</td></tr><tr><td>- Patient im Frühkindalter</td><td>&nbsp;&nbsp;&nbsp;- Schwieriger Atemweg</td></tr><tr><td>- Peripartale Blutung</td><td>&nbsp;&nbsp;&nbsp;- Pädiatrischer Patient</td></tr><tr><td>- Spinalanästhesie-Komplikation</td><td>&nbsp;&nbsp;&nbsp;- Sepsis mit Atemnot</td></tr><tr><td>- Kommunikationsfehler im OP</td><td>&nbsp;&nbsp;&nbsp;- Postoperative Schmerzkrise</td></tr><tr><td>- Anaphylaxie unter Narkose</td><td>&nbsp;&nbsp;&nbsp;- Hypotonie nach Einleitung</td></tr><tr><td>- Fehlplatzierter Tubus</td><td>&nbsp;&nbsp;&nbsp;- Blutung bei Leberzirrhose</td></tr><tr><td>- Reanimationssituation im OP</td><td>&nbsp;&nbsp;&nbsp;</td></tr></table>",
+                "widget": "html",
+                "style":{
+                    "width":"70vw",
+                    "align-self":"center"
+                }
+            },
+            {
+                "html": "<br><br>",
+                "widget": "html"
+            },
+            {
+                "html": "<h5>Wähle deinen Fall</h5>",
+                "widget": "html",
+                "style":{
+                    "width":"70vw",
+                    "align-self":"center"
+                }
+            },
+            {
+                "text": "Generiere den Fall",
+                "print-pointer": "0.txt",
+                "widget": "button",
+                "style":{
+                    "width":"70vw",
+                    "align-self":"center"
+                },
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "Antwort": {
+                            "widget":"textarea",
+                            "multiline": true,
+                            "style": {
+                                "width": "65vw"
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "html": "<br><br><br>",
+                "widget": "html"
+            },
+            {
+                "title": "Hier kommt gleich ein Fall:",
+                "display-pointer": "1.txt",
+                "widget": "display",
+                "style":{
+                    "width":"70vw",
+                    "align-self":"center"
+                }
+            },
+            {
+                "html": "<br><br><br>",
+                "widget": "html"
+            },
+            {
+                "html": "<h5>Schreibe deine Antwort</h5>",
+                "widget": "html",
+                "style":{
+                    "width":"70vw",
+                    "align-self":"center"
+                }
+            },
+            {
+                "text": " ",
+                "icon":"send",
+                "print-pointer": "0.txt",
+                "widget": "button",
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "Antwort": {
+                            "widget":"textarea",
+                            "multiline": true,
+                            "style": {
+                                "width": "65vw"
+                            }
+                        }
+                    }
+                },
+                "style":{
+                    "width":"70vw",
+                    "align-self":"center"
+                }
+            },
+            {
+                "html": "<br><br>",
+                "widget": "html"
+            }
+        ]
+    }
+}

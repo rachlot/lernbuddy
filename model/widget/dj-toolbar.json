@@ -10,7 +10,8 @@
                 "widget": "activity-status"
             },
             {
-                "widget": "toolbar",
+                "widget": "container",
+                "layout": "vertical",
                 "children": [
                     {
                         "readOnly": true,
@@ -18,42 +19,43 @@
                     },
                     {
                         "tooltip": "Home",
+                        "text": "Home",
                         "icon": "home",
                         "readOnly": true,
                         "href": "/",
-                        "widget": "icon"
+                        "widget": "icon-text-link"
                     },
                     {
-                        "tooltip": "Mein Lernfortschritt",
-                        "icon": "account_balance",
+                        "widget": "icon-text-link",
+                        "icon": "accessibility",
                         "readOnly": true,
-                        "href": "/page/Dashboard",
-                        "widget": "icon"
-                    },
-                    {
                         "tooltip": "Fallsimulation",
-                        "icon": "accessible_forward",
-                        "readOnly": true,
-                        "href": "/page/Fallsimulation",
-                        "widget": "icon"
+                        "text": "Fallsimulation",
+                        "href": "/page/Fallsimulation2V"
                     },
                     {
-                        "tooltip": "Lernziele",
-                        "icon": "outlined_flag",
+                        "widget": "icon-text-link",
+                        "icon": "quiz",
                         "readOnly": true,
-                        "href": "/page/Tree",
-                        "widget": "icon"
-                    },
-                    {
                         "tooltip": "Quizmodus",
                         "text": "Quizmodus",
+                        "href": "/page/QuizModus"
+                    },
+                    {
+                        "widget": "icon-text-link",
+                        "icon": "smart_toy",
                         "readOnly": true,
-                        "href": "/page/QuizModus",
-                        "icon": "settings",
-                        "roles": [
-                            "admin"
-                        ],
-                        "widget": "icon"
+                        "tooltip": "AskLernbuddy",
+                        "text": "AskLernbuddy",
+                        "href": "/page/AskLernbuddy"
+                    },
+                    {
+                        "tooltip": "Lernfortschritt",
+                        "icon": "insights",
+                        "text": "Fortschritt",
+                        "readOnly": true,
+                        "href": "/page/Dashboard",
+                        "widget": "icon-text-link"
                     },
                     {
                         "fxHide": "lt-md",
@@ -64,7 +66,7 @@
                         "roles": [
                             "admin"
                         ],
-                        "widget": "icon"
+                        "widget": "icon-text-link"
                     },
                     {
                         "fxHide": "lt-md",
@@ -75,7 +77,7 @@
                         "roles": [
                             "admin"
                         ],
-                        "widget": "icon"
+                        "widget": "icon-text-link"
                     },
                     {
                         "fxHide": "lt-md",
@@ -86,7 +88,7 @@
                         "roles": [
                             "admin"
                         ],
-                        "widget": "icon"
+                        "widget": "icon-text-link"
                     },
                     {
                         "fxHide": "lt-md",
@@ -97,7 +99,7 @@
                         "roles": [
                             "admin"
                         ],
-                        "widget": "icon"
+                        "widget": "icon-text-link"
                     },
                     {
                         "fxHide": "lt-md",
@@ -108,15 +110,11 @@
                         "roles": [
                             "admin"
                         ],
-                        "widget": "icon"
+                        "widget": "icon-text-link"
                     },
                     {
                         "readOnly": true,
                         "widget": "spacer"
-                    },
-                    {
-                        "readOnly": true,
-                        "widget": "search"
                     },
                     {
                         "readOnly": true,
@@ -135,7 +133,7 @@
                         "roles": [
                             "admin"
                         ],
-                        "widget": "icon"
+                        "widget": "icon-text-link"
                     }
                 ]
             }

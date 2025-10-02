@@ -1,0 +1,31 @@
+{
+    "ID": "dj-toolbar-settings",
+    "layout": {
+        "widget": "container",
+        "layout": "vertical",
+        "readOnly": true,
+        "children": [
+            {
+                "readOnly": true,
+                "widget": "activity-status"
+            },
+            {
+                "widget": "container",
+                "layout": "vertical",
+                "children": [
+                    {
+                        "readOnly": true,
+                        "widget": "sidenav-switch"
+                    },
+                    {
+                        "tooltip": "Einstellungen & Datenschutz",
+                        "text": "Einstellungen & Datenschutz",
+                        "readOnly": true,
+                        "href": "/page/Settings",
+                        "widget": "text-link"
+                    }
+                ]
+            }
+        ]
+    }
+}
