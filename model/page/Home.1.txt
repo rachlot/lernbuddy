@@ -1,1 +1,3 @@
-variable.antwort
+(
+    $navigate("/page/Fallsimulation2V")
+)

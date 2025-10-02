@@ -22,7 +22,7 @@
                         "text": "Home",
                         "icon": "home",
                         "readOnly": true,
-                        "href": "/page/Home2V",
+                        "href": "/",
                         "widget": "icon-text-link"
                     },
                     {
