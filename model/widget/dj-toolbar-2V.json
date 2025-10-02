@@ -10,8 +10,7 @@
                 "widget": "activity-status"
             },
             {
-                "widget": "container",
-                "layout": "vertical",
+                "widget": "toolbar",
                 "children": [
                     {
                         "readOnly": true,
@@ -19,43 +18,49 @@
                     },
                     {
                         "tooltip": "Home",
-                        "text": "Home",
                         "icon": "home",
                         "readOnly": true,
                         "href": "/",
-                        "widget": "icon-text-link"
+                        "widget": "icon"
                     },
                     {
-                        "widget": "icon-text-link",
-                        "icon": "accessibility",
-                        "readOnly": true,
-                        "tooltip": "Fallsimulation",
-                        "text": "Fallsimulation",
-                        "href": "/page/Fallsimulation2V"
-                    },
-                    {
-                        "widget": "icon-text-link",
-                        "icon": "quiz",
-                        "readOnly": true,
-                        "tooltip": "Quizmodus",
-                        "text": "Quizmodus",
-                        "href": "/page/QuizModus"
-                    },
-                    {
-                        "widget": "icon-text-link",
-                        "icon": "smart_toy",
-                        "readOnly": true,
-                        "tooltip": "AskLernbuddy",
-                        "text": "AskLernbuddy",
-                        "href": "/page/AskLernbuddy"
-                    },
-                    {
-                        "tooltip": "Lernfortschritt",
-                        "icon": "insights",
-                        "text": "Fortschritt",
+                        "tooltip": "Mein Lernfortschritt bei den Fachbereichen",
+                        "icon": "account_balance",
                         "readOnly": true,
                         "href": "/page/Dashboard",
-                        "widget": "icon-text-link"
+                        "widget": "icon"
+                    },
+                    {
+                        "tooltip": "Fallsimulation",
+                        "icon": "accessible_forward",
+                        "readOnly": true,
+                        "href": "/page/Fallsimulation",
+                        "widget": "icon"
+                    },
+                    {
+                        "tooltip": "Lernziele",
+                        "icon": "outlined_flag",
+                        "readOnly": true,
+                        "href": "/page/Tree",
+                        "widget": "icon"
+                    },
+                    {
+                        "tooltip": "Einstellungen & Datenschutz",
+                        "icon": "settings",
+                        "readOnly": true,
+                        "href": "/page/Settings",
+                        "widget":"icon"
+                    },
+                    {
+                        "tooltip": "Quizmodus",
+                        "text": "Quizmodus",
+                        "readOnly": true,
+                        "href": "/page/QuizModus",
+                        "icon": "settings",
+                        "roles": [
+                            "admin"
+                        ],
+                        "widget": "icon"
                     },
                     {
                         "fxHide": "lt-md",
@@ -66,7 +71,7 @@
                         "roles": [
                             "admin"
                         ],
-                        "widget": "icon-text-link"
+                        "widget": "icon"
                     },
                     {
                         "fxHide": "lt-md",
@@ -77,7 +82,7 @@
                         "roles": [
                             "admin"
                         ],
-                        "widget": "icon-text-link"
+                        "widget": "icon"
                     },
                     {
                         "fxHide": "lt-md",
@@ -88,7 +93,7 @@
                         "roles": [
                             "admin"
                         ],
-                        "widget": "icon-text-link"
+                        "widget": "icon"
                     },
                     {
                         "fxHide": "lt-md",
@@ -99,7 +104,7 @@
                         "roles": [
                             "admin"
                         ],
-                        "widget": "icon-text-link"
+                        "widget": "icon"
                     },
                     {
                         "fxHide": "lt-md",
@@ -110,11 +115,15 @@
                         "roles": [
                             "admin"
                         ],
-                        "widget": "icon-text-link"
+                        "widget": "icon"
                     },
                     {
                         "readOnly": true,
                         "widget": "spacer"
+                    },
+                    {
+                        "readOnly": true,
+                        "widget": "search"
                     },
                     {
                         "readOnly": true,
@@ -133,7 +142,7 @@
                         "roles": [
                             "admin"
                         ],
-                        "widget": "icon-text-link"
+                        "widget": "icon"
                     }
                 ]
             }
