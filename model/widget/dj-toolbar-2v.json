@@ -50,7 +50,7 @@
                         "href": "/page/AskLernbuddy"
                     },
                     {
-                        "tooltip": "Mein Lernfortschritt bei den Fachbereichen",
+                        "tooltip": "Lernfortschritt",
                         "icon": "insights",
                         "text": "Fortschritt",
                         "readOnly": true,
